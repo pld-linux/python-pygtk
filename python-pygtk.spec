@@ -1,7 +1,6 @@
 #
 # todo:
 # 1. numpy? extensions?
-# 2. gtkgl module
 
 %include	/usr/lib/rpm/macros.python
 
@@ -11,7 +10,7 @@ Summary:	Python bindings for Gtk+ 2.x libraries
 Summary(pl):	Wi您ania Pythona do bibliotek Gtk+ 2.x
 Name:		python-%{module}
 Version:	1.99.13
-Release:	4
+Release:	5
 License:	LGPL
 Group:		Libraries/Python
 Source0:	ftp://ftp.gtk.org/pub/gtk/python/v2.0/%{module}-%{version}.tar.gz
@@ -20,6 +19,7 @@ URL:		http://daa.com.au/~james/pygtk
 %pyrequires_eq	python-modules
 BuildRequires:	libglade2-devel >= 2.0.0
 BuildRequires:	python-devel >= 2.2.1
+BuildRequires:	gtkglarea-devel >= 1.99.0
 BuildRequires:	rpm-pythonprov
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -110,6 +110,18 @@ Python bindings for Glade library.
 %description glade -l pl
 Wi您ania Pythona do biblioteki Glade.
 
+%package glarea
+Summary:	Python bindings for GtkGLArea library
+Summary(pl):	Wi您ania Pythona do biblioteki GtkGLArea
+Group:		Libraries/Python
+Requires:	%{name}-gtk = %{version}
+
+%description glarea
+Python bindings for GtkGLArea library.
+
+%description glarea -l pl
+Wi您ania Pythona do biblioteki GtkGLArea.
+
 %prep
 %setup  -q -n %{module}-%{version}
 %patch0 -p1
@@ -179,3 +191,8 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %attr(755,root,root) %{py_sitedir}/gtk-2.0/gtk/glade*.so
 %attr(755,root,root) %{py_sitedir}/gtk-2.0/gtk/glade*.la
+
+%files glarea
+%defattr(644,root,root,755)
+%attr(755,root,root) %{py_sitedir}/gtk-2.0/gtk/glmodule*.so
+%attr(755,root,root) %{py_sitedir}/gtk-2.0/gtk/glmodule*.la
