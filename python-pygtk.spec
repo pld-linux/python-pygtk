@@ -9,17 +9,12 @@
 Summary:	Python bindings for Gtk+ 2.x libraries
 Summary(pl):	Wi±zania Pythona do bibliotek Gtk+ 2.x
 Name:		python-%{module}
-Version:	1.99.9
+Version:	1.99.10
 Release:	1
 License:	LGPL
-Group:		Development/Languages/Python
+Group:		Libraries/Python
 Source0:	ftp://ftp.gtk.org/pub/gtk/python/v2.0/%{module}-%{version}.tar.gz
 URL:		http://daa.com.au/~james/pygtk
-Requires:	%{name}-atk
-Requires:	%{name}-glade
-Requires:	%{name}-gobject
-Requires:	%{name}-gtk
-Requires:	%{name}-pango
 %pyrequires_eq	python-modules
 BuildRequires:	libglade2-devel >= 1.99.9
 BuildRequires:	python-devel >= 2.2.1
@@ -27,10 +22,28 @@ BuildRequires:	rpm-pythonprov
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
+Python bindings for Gtk+ 2.x libraries. This package contains documentation
+and examples.
+
+%description -l pl
+Wi±zania Pythona do bibliotek Gtk+ 2.x. Ten pakiet zawiera dokumentacjê
+oraz przyk³ady.
+
+%package devel
+Summary:	Python bindings for Gtk+ 2.x libraries - development files
+Summary(pl):	Wi±zania Pythona do bibliotek Gtk+ 2.x - czê¶æ rozwojowa
+Group:		Development/Languages/Python
+%requires_eq	%{name}-atk
+%requires_eq	%{name}-glade
+%requires_eq	%{name}-gobject
+%requires_eq	%{name}-gtk
+%requires_eq	%{name}-pango
+
+%description devel
 This package contains files required to build wrappers for Gtk+ addon
 libraries so that they interoperate with Python bindings.
 
-%description -l pl
+%description devel -l pl
 Pakiet zawiera pliki wymagane do zbudowania funkcji do bibliotek Gtk+,
 tak by mog³y te biblioteki kooperowaæ z wi±zaniami Pythona.
 
@@ -110,14 +123,16 @@ install -d $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{_examplesdir}/%{name}
 cp -a examples/* $RPM_BUILD_ROOT%{_examplesdir}/%{name}
 
-gzip -9nf README ChangeLog NEWS MAPPING TODO THREADS AUTHORS
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc *.gz
+%doc README ChangeLog NEWS MAPPING TODO THREADS AUTHORS
+%{_examplesdir}/%{name}
+
+%files devel
 %attr(755,root,root) %{_bindir}/*
 %{_includedir}/pygtk-2.0
 
@@ -129,7 +144,6 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/%{module}/2.0/defs
 
 %{_pkgconfigdir}/*.pc
-%{_examplesdir}/%{name}
 
 %files gobject
 %defattr(644,root,root,755)
