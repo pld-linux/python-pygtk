@@ -140,7 +140,6 @@ install -d $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{_examplesdir}/%{name}
 cp -a examples/* $RPM_BUILD_ROOT%{_examplesdir}/%{name}
 
-
 %clean
 rm -rf $RPM_BUILD_ROOT
 
@@ -172,6 +171,7 @@ rm -rf $RPM_BUILD_ROOT
 %files gtk
 %defattr(644,root,root,755)
 %dir %{py_sitedir}/gtk-2.0
+%dir %{py_sitedir}/gtk-2.0/gtk
 %attr(755,root,root) %{py_sitedir}/gtk-2.0/gtk/_gtk*.so
 %{py_sitedir}/gtk-2.0/gtk/*.py[co]
 %{py_sitedir}/gtk-2.0/gtk/_gtk*.la
