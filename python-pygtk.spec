@@ -53,6 +53,7 @@ tak by mog³y te biblioteki kooperowaæ z wi±zaniami Pythona.
 Summary:	Python bindings for GObject library
 Summary(pl):	Wi±zania Pythona do biblioteki GObject
 Group:		Libraries/Python
+%pyrequires_eq	python-modules
 
 %description gobject
 Python bindings for GObject library.
