@@ -17,7 +17,7 @@ Group:		Libraries/Python
 Source0:	http://ftp.gnome.org/pub/gnome/sources/%{module}/2.2/%{module}-%{version}.tar.bz2
 # Source0-md5:	992122f8a61c266aeb1b7b35be9c4be1
 Patch0:		%{name}-pyc.patch
-URL:		http://www.daa.com.au/~james/software/pygtk/
+URL:		http://www.pygtk.org/
 BuildRequires:	atk-devel >= 1.0.0
 BuildRequires:	gtk+2-devel >= 2.2.0
 BuildRequires:	libglade2-devel >= 2.0.1
