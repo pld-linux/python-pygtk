@@ -64,7 +64,8 @@ Wi±zania Pythona do biblioteki GObject.
 Summary:	Python bindings for Gtk+ library
 Summary(pl):	Wi±zania Pythona do biblioteki Gtk+
 Group:		Libraries/Python
-Requires:	%{name}-gobject = %{version}
+Requires:	%{name}-atk = %{version}
+Requires:	%{name}-pango = %{version}
 Conflicts:	%{name} < 1.0
 
 %description gtk
