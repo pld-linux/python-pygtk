@@ -21,8 +21,8 @@ Source2:	%{name}-jhflags.m4
 Patch0:		%{name}-pyc.patch
 URL:		http://www.pygtk.org/
 BuildRequires:	atk-devel >= 1.9.0
+BuildRequires:	autoconf >= 2.52
 BuildRequires:	automake
-BuildRequires:	autoconf
 BuildRequires:	gtk+2-devel >= 2:2.6.2
 BuildRequires:	libglade2-devel >= 1:2.5.0
 BuildRequires:	libtool
@@ -78,7 +78,7 @@ Summary:	Python bindings for GObject library
 Summary(pl):	Wi您ania Pythona do biblioteki GObject
 Group:		Libraries/Python
 %pyrequires_eq	python-modules
-Requires:	glib2 >= 1:2.4.4
+Requires:	glib2 >= 1:2.6.2
 Conflicts:	python-pygtk < 1:1.0
 Obsoletes:	python-pygtk-glarea
 
@@ -94,7 +94,7 @@ Summary(pl):	Wi您ania Pythona do biblioteki GTK+
 Group:		Libraries/Python
 Requires:	%{name}-atk = %{epoch}:%{version}-%{release}
 Requires:	%{name}-pango = %{epoch}:%{version}-%{release}
-Requires:	gtk+2 >= 2:2.4.4
+Requires:	gtk+2 >= 2:2.6.2
 Conflicts:	python-pygtk < 1:1.0
 Obsoletes:	python-pygtk-glarea
 
@@ -109,7 +109,7 @@ Summary:	Python bindings for ATK library
 Summary(pl):	Wi您ania Pythona do biblioteki ATK
 Group:		Libraries/Python
 Requires:	%{name}-gobject = %{epoch}:%{version}-%{release}
-Requires:	atk >= 1.0.0
+Requires:	atk >= 1.9.0
 
 %description atk
 Python bindings for ATK library.
@@ -122,7 +122,7 @@ Summary:	Python bindings for Pango library
 Summary(pl):	Wi您ania Pythona do biblioteki Pango
 Group:		Libraries/Python
 Requires:	%{name}-gobject = %{epoch}:%{version}-%{release}
-Requires:	pango >= 1.0.0
+Requires:	pango >= 1.8.0
 
 %description pango
 Python bindings for Pango library.
@@ -135,7 +135,7 @@ Summary:	Python bindings for Glade library
 Summary(pl):	Wi您ania Pythona do biblioteki Glade
 Group:		Libraries/Python
 Requires:	%{name}-gtk = %{epoch}:%{version}-%{release}
-Requires:	libglade2 >= 1:2.4.0
+Requires:	libglade2 >= 1:2.5.0
 Obsoletes:	python-pygtk-libglade < 1:1.0
 
 %description glade
