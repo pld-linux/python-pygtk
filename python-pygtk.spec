@@ -9,13 +9,13 @@
 Summary:	Python bindings for GTK+ 2.x libraries
 Summary(pl):	Wi±zania Pythona do bibliotek GTK+ 2.x
 Name:		python-%{module}
-Version:	2.6.0
+Version:	2.6.1
 Release:	1
 Epoch:		2
 License:	LGPL
 Group:		Libraries/Python
 Source0:	http://ftp.gnome.org/pub/gnome/sources/pygtk/2.6/%{module}-%{version}.tar.bz2
-# Source0-md5:	45e870beec4dd384d4c6397df7fbaecd
+# Source0-md5:	b4610829e4f57b5538dfa3b8f1fbe026
 Source1:	%{name}-python.m4
 Source2:	%{name}-jhflags.m4
 Patch0:		%{name}-pyc.patch
