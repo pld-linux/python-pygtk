@@ -21,7 +21,7 @@ URL:		http://www.daa.com.au/~james/software/pygtk/
 BuildRequires:	atk-devel >= 1.0.0
 BuildRequires:	gtk+2-devel >= 2.2.0
 BuildRequires:	libglade2-devel >= 2.0.1
-BuildRequires:	pango-devel >= 1.0.0
+BuildRequires:	pango-devel >= 1:1.0.0
 BuildRequires:	python-devel >= 1:2.3.2
 %{?with_numpy:BuildRequires:	python-numpy-devel}
 BuildRequires:	rpm-pythonprov
