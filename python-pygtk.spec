@@ -137,6 +137,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_examplesdir}/%{name}
 
 %files devel
+%defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/*
 %{_includedir}/pygtk-2.0
 
