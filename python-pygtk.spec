@@ -9,13 +9,13 @@
 Summary:	Python bindings for Gtk+ 2.x libraries
 Summary(pl):	Wi±zania Pythona do bibliotek Gtk+ 2.x
 Name:		python-%{module}
-Version:	1.99.18
-Release:	2
+Version:	2.0.0
+Release:	1
 Epoch:		1
 License:	LGPL
 Group:		Libraries/Python
-Source0:	http://ftp.gnome.org/pub/gnome/sources/%{module}/1.99/%{module}-%{version}.tar.bz2
-# Source0-md5:	9aee0b318079d516de52e98041d8a18f
+Source0:	http://ftp.gnome.org/pub/gnome/sources/%{module}/2.0/%{module}-%{version}.tar.bz2
+# Source0-md5:	14db9cfffe31f6df0351bd5fec69f606
 Patch0:		%{name}-pyc.patch
 URL:		http://www.daa.com.au/~james/software/pygtk/
 %pyrequires_eq	python-modules
