@@ -11,17 +11,19 @@
 Summary:	Python bindings for Gtk+ 2.x libraries
 Summary(pl):	Wi±zania Pythona do bibliotek Gtk+ 2.x
 Name:		python-%{module}
-Version:	2.0.0
-Release:	8
+Version:	2.2.0
+Release:	1
 Epoch:		1
 License:	LGPL
 Group:		Libraries/Python
-Source0:	http://ftp.gnome.org/pub/gnome/sources/%{module}/2.0/%{module}-%{version}.tar.bz2
-# Source0-md5:	14db9cfffe31f6df0351bd5fec69f606
+Source0:	http://ftp.gnome.org/pub/gnome/sources/%{module}/2.2/%{module}-%{version}.tar.bz2
+# Source0-md5:	992122f8a61c266aeb1b7b35be9c4be1
 Patch0:		%{name}-pyc.patch
 URL:		http://www.daa.com.au/~james/software/pygtk/
-BuildRequires:	gtkglarea-devel >= 1.99.0
+BuildRequires:	atk-devel >= 1.0.0
+BuildRequires:	gtk+2-devel >= 2.2.0
 BuildRequires:	libglade2-devel >= 2.0.1
+BuildRequires:	pango-devel >= 1.0.0
 BuildRequires:	python-devel >= 1:2.3.2
 %{?with_numpy:BuildRequires:	python-numpy-devel}
 BuildRequires:	rpm-pythonprov
@@ -41,11 +43,11 @@ oraz przyk³ady.
 Summary:	Python bindings for Gtk+ 2.x libraries - development files
 Summary(pl):	Wi±zania Pythona do bibliotek Gtk+ 2.x - czê¶æ rozwojowa
 Group:		Development/Languages/Python
-Requires:	%{name}-atk = %{epoch}:%{version}
-Requires:	%{name}-glade = %{epoch}:%{version}
-Requires:	%{name}-gobject = %{epoch}:%{version}
-Requires:	%{name}-gtk = %{epoch}:%{version}
-Requires:	%{name}-pango = %{epoch}:%{version}
+Requires:	%{name}-atk = %{epoch}:%{version}-%{release}
+Requires:	%{name}-glade = %{epoch}:%{version}-%{release}
+Requires:	%{name}-gobject = %{epoch}:%{version}-%{release}
+Requires:	%{name}-gtk = %{epoch}:%{version}-%{release}
+Requires:	%{name}-pango = %{epoch}:%{version}-%{release}
 Requires:	python-devel >= 1:2.3.2
 Obsoletes:	python-pygtk < 1:1.0
 
@@ -63,6 +65,7 @@ Summary(pl):	Wi±zania Pythona do biblioteki GObject
 Group:		Libraries/Python
 %pyrequires_eq	python-modules
 Conflicts:	python-pygtk < 1:1.0
+Obsoletes:	python-pygtk-glarea
 
 %description gobject
 Python bindings for GObject library.
@@ -74,8 +77,8 @@ Wi±zania Pythona do biblioteki GObject.
 Summary:	Python bindings for Gtk+ library
 Summary(pl):	Wi±zania Pythona do biblioteki Gtk+
 Group:		Libraries/Python
-Requires:	%{name}-atk = %{epoch}:%{version}
-Requires:	%{name}-pango = %{epoch}:%{version}
+Requires:	%{name}-atk = %{epoch}:%{version}-%{release}
+Requires:	%{name}-pango = %{epoch}:%{version}-%{release}
 Conflicts:	python-pygtk < 1:1.0
 
 %description gtk
@@ -88,7 +91,7 @@ Wi±zania Pythona do biblioteki Gtk+.
 Summary:	Python bindings for ATK library
 Summary(pl):	Wi±zania Pythona do biblioteki ATK
 Group:		Libraries/Python
-Requires:	%{name}-gobject = %{epoch}:%{version}
+Requires:	%{name}-gobject = %{epoch}:%{version}-%{release}
 
 %description atk
 Python bindings for ATK library.
@@ -100,7 +103,7 @@ Wi±zania Pythona do biblioteki ATK.
 Summary:	Python bindings for Pango library
 Summary(pl):	Wi±zania Pythona do biblioteki Pango
 Group:		Libraries/Python
-Requires:	%{name}-gobject = %{epoch}:%{version}
+Requires:	%{name}-gobject = %{epoch}:%{version}-%{release}
 
 %description pango
 Python bindings for Pango library.
@@ -112,7 +115,7 @@ Wi±zania Pythona do biblioteki Pango.
 Summary:	Python bindings for Glade library
 Summary(pl):	Wi±zania Pythona do biblioteki Glade
 Group:		Libraries/Python
-Requires:	%{name}-gtk = %{epoch}:%{version}
+Requires:	%{name}-gtk = %{epoch}:%{version}-%{release}
 Obsoletes:	python-pygtk-libglade < 1:1.0
 
 %description glade
@@ -120,18 +123,6 @@ Python bindings for Glade library.
 
 %description glade -l pl
 Wi±zania Pythona do biblioteki Glade.
-
-%package glarea
-Summary:	Python bindings for GtkGLArea library
-Summary(pl):	Wi±zania Pythona do biblioteki GtkGLArea
-Group:		Libraries/Python
-Requires:	%{name}-gtk = %{epoch}:%{version}
-
-%description glarea
-Python bindings for GtkGLArea library.
-
-%description glarea -l pl
-Wi±zania Pythona do biblioteki GtkGLArea.
 
 %prep
 %setup  -q -n %{module}-%{version}
@@ -190,6 +181,7 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{py_sitedir}/gtk-2.0/gtk
 %attr(755,root,root) %{py_sitedir}/gtk-2.0/gtk/_gtk*.so
 %{py_sitedir}/gtk-2.0/gtk/*.py[co]
+%{py_sitedir}/gtk-2.0/*.py[co]
 %{py_sitedir}/*.py[co]
 
 %files atk
@@ -203,7 +195,3 @@ rm -rf $RPM_BUILD_ROOT
 %files glade
 %defattr(644,root,root,755)
 %attr(755,root,root) %{py_sitedir}/gtk-2.0/gtk/glade*.so
-
-%files glarea
-%defattr(644,root,root,755)
-%attr(755,root,root) %{py_sitedir}/gtk-2.0/gtk/gl.so
