@@ -165,13 +165,13 @@ rm -rf $RPM_BUILD_ROOT
 
 %files gobject
 %defattr(644,root,root,755)
+%dir %{py_sitedir}/gtk-2.0
 %{py_sitedir}/pygtk.pth
 %attr(755,root,root) %{py_sitedir}/gtk-2.0/gobject*.so
 %{py_sitedir}/gtk-2.0/gobject*.la
 
 %files gtk
 %defattr(644,root,root,755)
-%dir %{py_sitedir}/gtk-2.0
 %dir %{py_sitedir}/gtk-2.0/gtk
 %attr(755,root,root) %{py_sitedir}/gtk-2.0/gtk/_gtk*.so
 %{py_sitedir}/gtk-2.0/gtk/*.py[co]
