@@ -16,17 +16,17 @@ Group:		Libraries/Python
 Source0:	http://ftp.gnome.org/pub/gnome/sources/%{module}/1.99/%{module}-%{version}.tar.bz2
 # Source0-md5: ae7fa3161942cc719712df42551ddfea
 Patch0:		%{name}-pyc.patch
-URL:		http://daa.com.au/~james/pygtk
+URL:		http://www.daa.com.au/~james/software/pygtk/
 %pyrequires_eq	python-modules
+BuildRequires:	gtkglarea-devel >= 1.99.0
 BuildRequires:	libglade2-devel >= 2.0.1
 BuildRequires:	python-devel >= 2.2.1
-BuildRequires:	gtkglarea-devel >= 1.99.0
 BuildRequires:	rpm-pythonprov
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-Python bindings for Gtk+ 2.x libraries. This package contains documentation
-and examples.
+Python bindings for Gtk+ 2.x libraries. This package contains
+documentation and examples.
 
 %description -l pl
 Wi±zania Pythona do bibliotek Gtk+ 2.x. Pakiet zawiera dokumentacjê
@@ -41,6 +41,7 @@ Requires:	%{name}-glade = %{version}
 Requires:	%{name}-gobject = %{version}
 Requires:	%{name}-gtk = %{version}
 Requires:	%{name}-pango = %{version}
+Obsoletes:	python-pygtk < 1.0
 
 %description devel
 This package contains files required to build wrappers for Gtk+ addon
@@ -55,6 +56,7 @@ Summary:	Python bindings for GObject library
 Summary(pl):	Wi±zania Pythona do biblioteki GObject
 Group:		Libraries/Python
 %pyrequires_eq	python-modules
+Conflicts:	python-pygtk < 1.0
 
 %description gobject
 Python bindings for GObject library.
@@ -68,7 +70,7 @@ Summary(pl):	Wi±zania Pythona do biblioteki Gtk+
 Group:		Libraries/Python
 Requires:	%{name}-atk = %{version}
 Requires:	%{name}-pango = %{version}
-Conflicts:	%{name} < 1.0
+Conflicts:	python-pygtk < 1.0
 
 %description gtk
 Python bindings for Gtk+ library.
@@ -105,6 +107,7 @@ Summary:	Python bindings for Glade library
 Summary(pl):	Wi±zania Pythona do biblioteki Glade
 Group:		Libraries/Python
 Requires:	%{name}-gtk = %{version}
+Obsoletes:	python-pygtk-libglade < 1.0
 
 %description glade
 Python bindings for Glade library.
