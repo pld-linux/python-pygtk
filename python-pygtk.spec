@@ -144,8 +144,8 @@ install -d $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-install -d $RPM_BUILD_ROOT%{_examplesdir}/%{name}
-cp -a examples/* $RPM_BUILD_ROOT%{_examplesdir}/%{name}
+install -d $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
+cp -a examples/* $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
 
 rm -f $RPM_BUILD_ROOT%{py_sitedir}/*/{*.la,*/*.la}
 
@@ -155,7 +155,7 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc README ChangeLog NEWS MAPPING TODO THREADS AUTHORS
-%{_examplesdir}/%{name}
+%{_examplesdir}/%{name}-%{version}
 
 %files devel
 %defattr(644,root,root,755)
