@@ -9,14 +9,14 @@
 Summary:	Python bindings for Gtk+ 2.x libraries
 Summary(pl):	Wi±zania Pythona do bibliotek Gtk+ 2.x
 Name:		python-%{module}
-Version:	1.99.10
+Version:	1.99.11
 Release:	1
 License:	LGPL
 Group:		Libraries/Python
 Source0:	ftp://ftp.gtk.org/pub/gtk/python/v2.0/%{module}-%{version}.tar.gz
 URL:		http://daa.com.au/~james/pygtk
 %pyrequires_eq	python-modules
-BuildRequires:	libglade2-devel >= 1.99.9
+BuildRequires:	libglade2-devel >= 2.0.0
 BuildRequires:	python-devel >= 2.2.1
 BuildRequires:	rpm-pythonprov
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
