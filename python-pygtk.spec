@@ -51,6 +51,7 @@ Summary:	Python bindings for Gtk+ library
 Summary(pl):	Wi±zania Pythona do biblioteki Gtk+
 Group:		Development/Languages/Python
 Requires:	%{name}-gobject = %{version}
+Conflicts:	%{name} < 1.0
 
 %description gtk
 Python bindings for Gtk+ library.
