@@ -9,19 +9,19 @@
 Summary:	Python bindings for GTK+ 2.x libraries
 Summary(pl):	Wi您ania Pythona do bibliotek GTK+ 2.x
 Name:		python-%{module}
-Version:	2.2.0
-Release:	2
+Version:	2.3.97
+Release:	1
 Epoch:		2
 License:	LGPL
 Group:		Libraries/Python
-Source0:	http://ftp.gnome.org/pub/gnome/sources/%{module}/2.2/%{module}-%{version}.tar.bz2
-# Source0-md5:	992122f8a61c266aeb1b7b35be9c4be1
+Source0:	http://ftp.gnome.org/pub/gnome/sources/%{module}/2.3/%{module}-%{version}.tar.bz2
+# Source0-md5:	51af62c438f619477110ac76d9a6cd98
 Patch0:		%{name}-pyc.patch
 URL:		http://www.pygtk.org/
 BuildRequires:	atk-devel >= 1.0.0
-BuildRequires:	gtk+2-devel >= 2.2.0
-BuildRequires:	libglade2-devel >= 2.0.1
-BuildRequires:	pango-devel >= 1:1.0.0
+BuildRequires:	gtk+2-devel >= 2:2.4.4
+BuildRequires:	libglade2-devel >= 1:2.4.0
+BuildRequires:	pango-devel >= 1.0.0
 BuildRequires:	python-devel >= 1:2.3.2
 %{?with_numpy:BuildRequires:	python-numpy-devel}
 BuildRequires:	rpm-pythonprov
@@ -73,6 +73,7 @@ Summary:	Python bindings for GObject library
 Summary(pl):	Wi您ania Pythona do biblioteki GObject
 Group:		Libraries/Python
 %pyrequires_eq	python-modules
+Requires:	glib2 >= 1:2.4.4
 Conflicts:	python-pygtk < 1:1.0
 Obsoletes:	python-pygtk-glarea
 
@@ -88,6 +89,7 @@ Summary(pl):	Wi您ania Pythona do biblioteki GTK+
 Group:		Libraries/Python
 Requires:	%{name}-atk = %{epoch}:%{version}-%{release}
 Requires:	%{name}-pango = %{epoch}:%{version}-%{release}
+Requires:	gtk+2 >= 2:2.4.4
 Conflicts:	python-pygtk < 1:1.0
 Obsoletes:	python-pygtk-glarea
 
@@ -102,6 +104,7 @@ Summary:	Python bindings for ATK library
 Summary(pl):	Wi您ania Pythona do biblioteki ATK
 Group:		Libraries/Python
 Requires:	%{name}-gobject = %{epoch}:%{version}-%{release}
+Requires:	atk >= 1.0.0
 
 %description atk
 Python bindings for ATK library.
@@ -114,6 +117,7 @@ Summary:	Python bindings for Pango library
 Summary(pl):	Wi您ania Pythona do biblioteki Pango
 Group:		Libraries/Python
 Requires:	%{name}-gobject = %{epoch}:%{version}-%{release}
+Requires:	pango >= 1.0.0
 
 %description pango
 Python bindings for Pango library.
@@ -126,6 +130,7 @@ Summary:	Python bindings for Glade library
 Summary(pl):	Wi您ania Pythona do biblioteki Glade
 Group:		Libraries/Python
 Requires:	%{name}-gtk = %{epoch}:%{version}-%{release}
+Requires:	libglade2 >= 1:2.4.0
 Obsoletes:	python-pygtk-libglade < 1:1.0
 
 %description glade
@@ -183,12 +188,14 @@ rm -rf $RPM_BUILD_ROOT
 %doc README ChangeLog NEWS MAPPING TODO THREADS AUTHORS
 %dir %{py_sitedir}/gtk-2.0
 %{py_sitedir}/pygtk.pth
+%{py_sitedir}/pygtk.pth
 %attr(755,root,root) %{py_sitedir}/gtk-2.0/gobject*.so
 
 %files gtk
 %defattr(644,root,root,755)
 %dir %{py_sitedir}/gtk-2.0/gtk
 %attr(755,root,root) %{py_sitedir}/gtk-2.0/gtk/_gtk*.so
+%{py_sitedir}/gtk-2.0/gtk/*.py[co]
 %{py_sitedir}/gtk-2.0/gtk/*.py[co]
 %{py_sitedir}/gtk-2.0/*.py[co]
 %{py_sitedir}/*.py[co]
