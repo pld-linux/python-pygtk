@@ -1,11 +1,8 @@
 
 #
 # todo:
-# 1. libglade subpackage (needs libglade2)
-# 2. descriptions and summaries
-# 3. review subpackages content and dependencies (does gtk require atk
-#    and pango modules? more?)
-# 4. numpy?
+# 1. descriptions and summaries
+# 2. numpy? extensions?
 #
 
 %include /usr/lib/rpm/macros.python
@@ -15,18 +12,18 @@ Summary:	P
 Summary(pl):	P
 Name:		python-%{module}
 Version:	1.99.7
-Release:	0.1
+Release:	0.2
 License:	GPL
 Group:		Development/Languages/Python
 Source0:	ftp://ftp.gtk.org/pub/gtk/python/v1.3/%{module}-%{version}.tar.gz
 URL:		http://daa.com.au/~james/pygtk
 %requires_eq    python-modules
-BuildRequires:	gtk+2-devel
-BuildRequires:	libglade2-devel
-BuildRequires:	atk-devel
-BuildRequires:	pango-devel
+BuildRequires:	gtk+2-devel >= 2.0.0
+BuildRequires:	libglade2-devel >= 1.99.9
+BuildRequires:	atk-devel >= 1.0.0
+BuildRequires:	pango-devel >= 1.0.0
 BuildRequires:	rpm-pythonprov
-BuildRequires:	python-devel
+BuildRequires:	python-devel >= 2.2
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -82,6 +79,18 @@ N/A
 %description pango -l pl
 N/A
 
+%package glade
+Summary:	glade
+Summary(pl):	glade
+Group:		Development/Languages/Python
+Requires:	%{name}-gtk = %{version}
+
+%description glade
+N/A
+
+%description glade -l pl
+N/A
+
 %prep
 %setup  -q -n %{module}-%{version}
 
@@ -112,8 +121,9 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{_datadir}/%{module}
 %dir %{_datadir}/%{module}/2.0
 %dir %{_datadir}/%{module}/2.0/codegen
-%dir %{_datadir}/%{module}/2.0/defs
 %{_datadir}/%{module}/2.0/codegen/*.py[co]
+
+%{_datadir}/%{module}/2.0/defs
 
 %{_pkgconfigdir}/*.pc
 %{_examplesdir}/%{name}
@@ -125,21 +135,22 @@ rm -rf $RPM_BUILD_ROOT
 
 %files gtk
 %defattr(644,root,root,755)
-%{_datadir}/%{module}/2.0/defs/gtk*
-%{_datadir}/%{module}/2.0/defs/gdk*
 %dir %{py_sitedir}/gtk
-%attr(755,root,root) %{py_sitedir}/gtk/*.so
-%attr(755,root,root) %{py_sitedir}/gtk/*.la
+%attr(755,root,root) %{py_sitedir}/gtk/_gtk*.so
+%attr(755,root,root) %{py_sitedir}/gtk/_gtk*.la
 %{py_sitedir}/gtk/*.py[co]
 
 %files atk
 %defattr(644,root,root,755)
-%{_datadir}/%{module}/2.0/defs/atk*
 %attr(755,root,root) %{py_sitedir}/atk*.so
 %attr(755,root,root) %{py_sitedir}/atk*.la
 
 %files pango
 %defattr(644,root,root,755)
-%{_datadir}/%{module}/2.0/defs/pango*
 %attr(755,root,root) %{py_sitedir}/pango*.so
 %attr(755,root,root) %{py_sitedir}/pango*.la
+
+%files glade
+%defattr(644,root,root,755)
+%attr(755,root,root) %{py_sitedir}/gtk/glade*.so
+%attr(755,root,root) %{py_sitedir}/gtk/glade*.la
