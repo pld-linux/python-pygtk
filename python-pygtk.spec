@@ -6,8 +6,8 @@
 
 %define		module	pygtk
 
-Summary:	Python bindings for Gtk+ libraries - development files
-Summary(pl):	Wi±zania Pythona do bibliotek Gtk+ - czê¶æ rozwojowa
+Summary:	Python bindings for Gtk+ 2.x libraries
+Summary(pl):	Wi±zania Pythona do bibliotek Gtk+ 2.x
 Name:		python-%{module}
 Version:	1.99.9
 Release:	1
