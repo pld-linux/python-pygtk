@@ -27,8 +27,6 @@ BuildRequires:	pango-devel >= 1.0.0
 BuildRequires:	python-devel >= 1:2.3.2
 %{?with_numpy:BuildRequires:	python-numpy-devel}
 BuildRequires:	rpm-pythonprov
-%pyrequires_eq	python-modules
-%{?with_numpy:Requires:	python-numpy}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -58,6 +56,19 @@ libraries so that they interoperate with Python bindings.
 %description devel -l pl
 Pakiet zawiera pliki wymagane do zbudowania funkcji do bibliotek Gtk+,
 tak by mog³y te biblioteki kooperowaæ z wi±zaniami Pythona.
+
+%package examples
+Summary:	Example programs for pygtk
+Summary(pl):	Programy przyk³adowe do pygtk
+Group:		Development/Languages/Python
+Requires:	%{name}-devel = %{epoch}:%{version}-%{release}
+Obsoletes:	python-pygtk
+
+%description examples
+This package contains example programs for pygtk.
+
+%description examples -l pl
+Ten pakiet zawiera przyk³adowe programy dla pygtk.
 
 %package gobject
 Summary:	Python bindings for GObject library
@@ -138,7 +149,6 @@ cp /usr/share/automake/config.sub .
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
@@ -150,11 +160,6 @@ rm -f $RPM_BUILD_ROOT%{py_sitedir}/*/{*.la,*/*.la}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
-
-%files
-%defattr(644,root,root,755)
-%doc README ChangeLog NEWS MAPPING TODO THREADS AUTHORS
-%{_examplesdir}/%{name}-%{version}
 
 %files devel
 %defattr(644,root,root,755)
@@ -170,8 +175,13 @@ rm -rf $RPM_BUILD_ROOT
 
 %{_pkgconfigdir}/*.pc
 
+%files examples
+%defattr(644,root,root,755)
+%{_examplesdir}/%{name}-%{version}
+
 %files gobject
 %defattr(644,root,root,755)
+%doc README ChangeLog NEWS MAPPING TODO THREADS AUTHORS
 %dir %{py_sitedir}/gtk-2.0
 %{py_sitedir}/pygtk.pth
 %attr(755,root,root) %{py_sitedir}/gtk-2.0/gobject*.so
