@@ -14,11 +14,12 @@ Release:	1
 Epoch:		2
 License:	LGPL
 Group:		Libraries/Python
-Source0:	http://ftp.gnome.org/pub/gnome/sources/%{module}/2.4/%{module}-%{version}.tar.bz2
+Source0:	http://ftp.gnome.org/pub/gnome/sources/pygtk/2.4/%{module}-%{version}.tar.bz2
 # Source0-md5:	d3ae939f0d484cde22169e3e63021049
 Patch0:		%{name}-pyc.patch
 URL:		http://www.pygtk.org/
 BuildRequires:	atk-devel >= 1.0.0
+BuildRequires:	automake
 BuildRequires:	gtk+2-devel >= 2:2.4.4
 BuildRequires:	libglade2-devel >= 1:2.4.0
 BuildRequires:	pango-devel >= 1.0.0
@@ -188,14 +189,12 @@ rm -rf $RPM_BUILD_ROOT
 %doc README ChangeLog NEWS MAPPING TODO THREADS AUTHORS
 %dir %{py_sitedir}/gtk-2.0
 %{py_sitedir}/pygtk.pth
-%{py_sitedir}/pygtk.pth
 %attr(755,root,root) %{py_sitedir}/gtk-2.0/gobject*.so
 
 %files gtk
 %defattr(644,root,root,755)
 %dir %{py_sitedir}/gtk-2.0/gtk
 %attr(755,root,root) %{py_sitedir}/gtk-2.0/gtk/_gtk*.so
-%{py_sitedir}/gtk-2.0/gtk/*.py[co]
 %{py_sitedir}/gtk-2.0/gtk/*.py[co]
 %{py_sitedir}/gtk-2.0/*.py[co]
 %{py_sitedir}/*.py[co]
