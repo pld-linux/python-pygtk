@@ -188,15 +188,16 @@ rm -rf $RPM_BUILD_ROOT
 %doc README ChangeLog NEWS MAPPING TODO THREADS AUTHORS
 %dir %{py_sitedir}/gtk-2.0
 %{py_sitedir}/pygtk.pth
+%{py_sitescriptdir}/pygtk.pth
 %attr(755,root,root) %{py_sitedir}/gtk-2.0/gobject*.so
 
 %files gtk
 %defattr(644,root,root,755)
 %dir %{py_sitedir}/gtk-2.0/gtk
 %attr(755,root,root) %{py_sitedir}/gtk-2.0/gtk/_gtk*.so
-%{py_sitedir}/gtk-2.0/gtk/*.py[co]
-%{py_sitedir}/gtk-2.0/*.py[co]
-%{py_sitedir}/*.py[co]
+%{py_sitescriptdir}/gtk-2.0/gtk/*.py[co]
+%{py_sitescriptdir}/gtk-2.0/*.py[co]
+%{py_sitescriptdir}/*.py[co]
 
 %files atk
 %defattr(644,root,root,755)
