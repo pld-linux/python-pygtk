@@ -141,7 +141,8 @@ Wi±zania Pythona do biblioteki GtkGLArea.
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT
 
-%{__make} install DESTDIR=$RPM_BUILD_ROOT
+%{__make} install \
+	DESTDIR=$RPM_BUILD_ROOT
 
 install -d $RPM_BUILD_ROOT%{_examplesdir}/%{name}
 cp -a examples/* $RPM_BUILD_ROOT%{_examplesdir}/%{name}
@@ -197,4 +198,4 @@ rm -rf $RPM_BUILD_ROOT
 
 %files glarea
 %defattr(644,root,root,755)
-%attr(755,root,root) %{py_sitedir}/gtk-2.0/gtk/glmodule*.so
+%attr(755,root,root) %{py_sitedir}/gtk-2.0/gtk/gl.so
