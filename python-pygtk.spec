@@ -145,6 +145,8 @@ rm -rf $RPM_BUILD_ROOT
 
 %{_pkgconfigdir}/*.pc
 
+%{py_sitedir}/pygtk.pth
+
 %files gobject
 %defattr(644,root,root,755)
 %attr(755,root,root) %{py_sitedir}/gtk-2.0/gobject*.so
