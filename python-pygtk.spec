@@ -45,15 +45,15 @@ make OPT="$RPM_OPT_FLAGS"
 
 %install
 rm -rf $RPM_BUILD_ROOT
-mkdir -p $RPM_BUILD_ROOT/usr/lib/python1.5/site-packages/PyGTK
-install -m 644 $RPM_SOURCE_DIR/PyGTK.pth $RPM_BUILD_ROOT/usr/lib/python1.5/site-packages
-make pyexecdir=$RPM_BUILD_ROOT/usr/lib/python1.5/site-packages/PyGTK \
-	pythondir=$RPM_BUILD_ROOT/usr/lib/python1.5/site-packages/PyGTK install
+mkdir -p $RPM_BUILD_ROOT%{_libdir}/python1.5/site-packages/PyGTK
+install -m 644 $RPM_SOURCE_DIR/PyGTK.pth $RPM_BUILD_ROOT%{_libdir}/python1.5/site-packages
+make pyexecdir=$RPM_BUILD_ROOT%{_libdir}/python1.5/site-packages/PyGTK \
+	pythondir=$RPM_BUILD_ROOT%{_libdir}/python1.5/site-packages/PyGTK install
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %doc COPYING Changelog README examples
-/usr/lib/python1.5/site-packages/PyGTK.pth
-/usr/lib/python1.5/site-packages/PyGTK
+%{_libdir}/python1.5/site-packages/PyGTK.pth
+%{_libdir}/python1.5/site-packages/PyGTK
