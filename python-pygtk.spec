@@ -45,7 +45,7 @@ Requires:	%{name}-gobject = %{epoch}:%{version}-%{release}
 Requires:	%{name}-gtk = %{epoch}:%{version}-%{release}
 Requires:	%{name}-pango = %{epoch}:%{version}-%{release}
 Requires:	python-devel >= 1:2.3.2
-Obsoletes:	%{name} < 1:1.0
+Obsoletes:	python-pygtk < 1:1.0
 
 %description devel
 This package contains files required to build wrappers for GTK+ addon
@@ -60,7 +60,7 @@ Summary:	Example programs for pygtk
 Summary(pl):	Programy przyk豉dowe do pygtk
 Group:		Development/Languages/Python
 Requires:	%{name}-devel = %{epoch}:%{version}-%{release}
-Obsoletes:	%{name} < 1:1.0
+Obsoletes:	python-pygtk < 1:1.0
 
 %description examples
 This package contains example programs for pygtk.
@@ -73,8 +73,8 @@ Summary:	Python bindings for GObject library
 Summary(pl):	Wi您ania Pythona do biblioteki GObject
 Group:		Libraries/Python
 %pyrequires_eq	python-modules
-Conflicts:	%{name} < 1:1.0
-Obsoletes:	%{name}-glarea
+Conflicts:	python-pygtk < 1:1.0
+Obsoletes:	python-pygtk-glarea
 
 %description gobject
 Python bindings for GObject library.
@@ -88,8 +88,8 @@ Summary(pl):	Wi您ania Pythona do biblioteki GTK+
 Group:		Libraries/Python
 Requires:	%{name}-atk = %{epoch}:%{version}-%{release}
 Requires:	%{name}-pango = %{epoch}:%{version}-%{release}
-Conflicts:	%{name} < 1:1.0
-Obsoletes:	%{name}-glarea
+Conflicts:	python-pygtk < 1:1.0
+Obsoletes:	python-pygtk-glarea
 
 %description gtk
 Python bindings for GTK+ library.
@@ -126,7 +126,7 @@ Summary:	Python bindings for Glade library
 Summary(pl):	Wi您ania Pythona do biblioteki Glade
 Group:		Libraries/Python
 Requires:	%{name}-gtk = %{epoch}:%{version}-%{release}
-Obsoletes:	%{name}-libglade < 1:1.0
+Obsoletes:	python-pygtk-libglade < 1:1.0
 
 %description glade
 Python bindings for Glade library.
@@ -135,11 +135,11 @@ Python bindings for Glade library.
 Wi您ania Pythona do biblioteki Glade.
 
 %prep
-%setup  -q -n %{module}-%{version}
+%setup -q -n %{module}-%{version}
 %patch0 -p1
 
 %build
-cp /usr/share/automake/config.sub .
+cp -f /usr/share/automake/config.sub .
 %configure \
 	--enable-thread \
 	%{!?with_numpy:--disable-numpy}
