@@ -9,7 +9,7 @@
 Summary:	Python bindings for Gtk+ libraries - development files
 Summary(pl):	Wi±zania Pythona do bibliotek Gtk+ - czê¶æ rozwojowa
 Name:		python-%{module}
-Version:	1.99.8
+Version:	1.99.9
 Release:	1
 License:	LGPL
 Group:		Development/Languages/Python
