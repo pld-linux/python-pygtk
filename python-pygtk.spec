@@ -40,7 +40,7 @@ write).
 %setup -n pygtk-0.5.9
 
 %build
-./configure %{_target}
+./configure %{_target_platform}
 make OPT="$RPM_OPT_FLAGS"
 
 %install
