@@ -1,5 +1,5 @@
 %define module pygtk
-%define pver 1.6
+%define python_sitepkgsdir %(echo `python -c "import sys; print (sys.prefix + '/lib/python' + sys.version[:3] + '/site-packages/')"`)
 
 Summary:	GTK+ interface for Python language
 Summary(pl):	Interfejs GTK+ dla jêzyka Python
@@ -32,21 +32,21 @@ programów z u¿yciem biblioteki GTK+.
 %install
 rm -rf $RPM_BUILD_ROOT
 
-install -d $RPM_BUILD_ROOT%{_libdir}/python%{pver}/site-packages/%{module}
+install -d $RPM_BUILD_ROOT%{python_sitepkgsdir}/%{module}
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT \
-	pyexecdir=%{_libdir}/python%{pver}/site-packages/%{module} \
-	pthondir=%{_libdir}/python%{pver}/site-packages/%{module}
+	pyexecdir=%{python_sitepkgsdir}/%{module} \
+	pthondir=%{python_sitepkgsdir}/%{module}
 	
 install -d $RPM_BUILD_ROOT%{_prefix}/src/examples/%{name}
 mv examples/* $RPM_BUILD_ROOT%{_prefix}/src/examples/%{name}
 
-mv $RPM_BUILD_ROOT%{_libdir}/python%{pver}/site-packages/*.py* \
-	$RPM_BUILD_ROOT%{_libdir}/python%{pver}/site-packages/%{module}
+mv $RPM_BUILD_ROOT%{python_sitepkgsdir}/*.py* \
+	$RPM_BUILD_ROOT%{python_sitepkgsdir}/%{module}
 
-echo %{module} > $RPM_BUILD_ROOT%{_libdir}/python%{pver}/site-packages/%{module}.pth
-echo pyglade > $RPM_BUILD_ROOT%{_libdir}/python%{pver}/site-packages/pyglade.pth
+echo %{module} > $RPM_BUILD_ROOT%{python_sitepkgsdir}/%{module}.pth
+echo pyglade > $RPM_BUILD_ROOT%{python_sitepkgsdir}/pyglade.pth
 
 gzip -9nf COPYING ChangeLog README MAPPING
 
@@ -56,9 +56,9 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc {ChangeLog,README,MAPPING}.gz
-%{_libdir}/python%{pver}/site-packages/%{module}.pth
-%{_libdir}/python%{pver}/site-packages/%{module}
-%{_libdir}/python%{pver}/site-packages/pyglade.pth
-%{_libdir}/python%{pver}/site-packages/pyglade
+%{python_sitepkgsdir}/%{module}.pth
+%{python_sitepkgsdir}/%{module}
+%{python_sitepkgsdir}/pyglade.pth
+%{python_sitepkgsdir}/pyglade
 %{_includedir}/%{module}/
 %attr(-,root,root) %{_prefix}/src/examples/%{name}
