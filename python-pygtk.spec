@@ -9,8 +9,8 @@
 Summary:	Python bindings for Gtk+ 2.x libraries
 Summary(pl):	Wi±zania Pythona do bibliotek Gtk+ 2.x
 Name:		python-%{module}
-Version:	1.99.12
-Release:	2
+Version:	1.99.13
+Release:	1
 License:	LGPL
 Group:		Libraries/Python
 Source0:	ftp://ftp.gtk.org/pub/gtk/python/v2.0/%{module}-%{version}.tar.gz
@@ -125,7 +125,7 @@ cp -a examples/* $RPM_BUILD_ROOT%{_examplesdir}/%{name}
 
 
 %clean
-rm -rf $RPM_BUILD_ROOT
+#rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
@@ -147,27 +147,28 @@ rm -rf $RPM_BUILD_ROOT
 
 %files gobject
 %defattr(644,root,root,755)
-%attr(755,root,root) %{py_sitedir}/gobject*.so
-%attr(755,root,root) %{py_sitedir}/gobject*.la
+%attr(755,root,root) %{py_sitedir}/gtk-2.0/gobject*.so
+%attr(755,root,root) %{py_sitedir}/gtk-2.0/gobject*.la
 
 %files gtk
 %defattr(644,root,root,755)
-%dir %{py_sitedir}/gtk
-%attr(755,root,root) %{py_sitedir}/gtk/_gtk*.so
-%attr(755,root,root) %{py_sitedir}/gtk/_gtk*.la
-%{py_sitedir}/gtk/*.py[co]
+%dir %{py_sitedir}/gtk-2.0
+%attr(755,root,root) %{py_sitedir}/gtk-2.0/gtk/*.py[co]
+%attr(755,root,root) %{py_sitedir}/gtk-2.0/gtk/_gtk*.so
+%attr(755,root,root) %{py_sitedir}/gtk-2.0/gtk/_gtk*.la
+%{py_sitedir}/*.py[co]
 
 %files atk
 %defattr(644,root,root,755)
-%attr(755,root,root) %{py_sitedir}/atk*.so
-%attr(755,root,root) %{py_sitedir}/atk*.la
+%attr(755,root,root) %{py_sitedir}/gtk-2.0/atk*.so
+%attr(755,root,root) %{py_sitedir}/gtk-2.0/atk*.la
 
 %files pango
 %defattr(644,root,root,755)
-%attr(755,root,root) %{py_sitedir}/pango*.so
-%attr(755,root,root) %{py_sitedir}/pango*.la
+%attr(755,root,root) %{py_sitedir}/gtk-2.0/pango*.so
+%attr(755,root,root) %{py_sitedir}/gtk-2.0/pango*.la
 
 %files glade
 %defattr(644,root,root,755)
-%attr(755,root,root) %{py_sitedir}/gtk/glade*.so
-%attr(755,root,root) %{py_sitedir}/gtk/glade*.la
+%attr(755,root,root) %{py_sitedir}/gtk-2.0/gtk/glade*.so
+%attr(755,root,root) %{py_sitedir}/gtk-2.0/gtk/glade*.la
