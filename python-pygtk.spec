@@ -10,7 +10,7 @@ License:	LGPL
 Group:		Development/Languages/Python
 Group(de):	Entwicklung/Sprachen/Python
 Group(pl):	Programowanie/Jêzyki/Python
-Source0:	%{module}-%{version}.tar.gz
+Source0:	http://freshmeat.net/redir/pygtk/8536/url_tgz/%{module}-%{version}.tar.gz
 Requires:	python >= 1.5, gtk+ >= 1.2.6, imlib >= 1.8
 BuildRequires:	python-devel >= 1.5, gtk+-devel >= 1.2.6
 Provides:	pygtk
