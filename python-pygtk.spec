@@ -167,32 +167,32 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %{py_sitedir}/pygtk.pth
 %attr(755,root,root) %{py_sitedir}/gtk-2.0/gobject*.so
-%attr(755,root,root) %{py_sitedir}/gtk-2.0/gobject*.la
+%{py_sitedir}/gtk-2.0/gobject*.la
 
 %files gtk
 %defattr(644,root,root,755)
 %dir %{py_sitedir}/gtk-2.0
 %attr(755,root,root) %{py_sitedir}/gtk-2.0/gtk/*.py[co]
 %attr(755,root,root) %{py_sitedir}/gtk-2.0/gtk/_gtk*.so
-%attr(755,root,root) %{py_sitedir}/gtk-2.0/gtk/_gtk*.la
+%{py_sitedir}/gtk-2.0/gtk/_gtk*.la
 %{py_sitedir}/*.py[co]
 
 %files atk
 %defattr(644,root,root,755)
 %attr(755,root,root) %{py_sitedir}/gtk-2.0/atk*.so
-%attr(755,root,root) %{py_sitedir}/gtk-2.0/atk*.la
+%{py_sitedir}/gtk-2.0/atk*.la
 
 %files pango
 %defattr(644,root,root,755)
 %attr(755,root,root) %{py_sitedir}/gtk-2.0/pango*.so
-%attr(755,root,root) %{py_sitedir}/gtk-2.0/pango*.la
+%{py_sitedir}/gtk-2.0/pango*.la
 
 %files glade
 %defattr(644,root,root,755)
 %attr(755,root,root) %{py_sitedir}/gtk-2.0/gtk/glade*.so
-%attr(755,root,root) %{py_sitedir}/gtk-2.0/gtk/glade*.la
+%{py_sitedir}/gtk-2.0/gtk/glade*.la
 
 %files glarea
 %defattr(644,root,root,755)
 %attr(755,root,root) %{py_sitedir}/gtk-2.0/gtk/glmodule*.so
-%attr(755,root,root) %{py_sitedir}/gtk-2.0/gtk/glmodule*.la
+%{py_sitedir}/gtk-2.0/gtk/glmodule*.la
