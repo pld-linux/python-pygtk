@@ -11,7 +11,7 @@ Summary(pl):	Wi±zania Pythona do bibliotek GTK+ 2.x
 Name:		python-%{module}
 Version:	2.2.0
 Release:	2
-Epoch:		1
+Epoch:		2
 License:	LGPL
 Group:		Libraries/Python
 Source0:	http://ftp.gnome.org/pub/gnome/sources/%{module}/2.2/%{module}-%{version}.tar.bz2
