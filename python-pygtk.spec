@@ -18,13 +18,17 @@ License:	GPL
 Group:		Development/Languages/Python
 Source0:	ftp://ftp.gtk.org/pub/gtk/python/v1.3/%{module}-%{version}.tar.gz
 URL:		http://daa.com.au/~james/pygtk
+Requires:	%{name}-atk
+Requires:	%{name}-gobject
+Requires:	%{name}-gtk
+Requires:	%{name}-pango
 %requires_eq    python-modules
+BuildRequires:	atk-devel >= 1.0.0
 BuildRequires:	gtk+2-devel >= 2.0.0
 BuildRequires:	libglade2-devel >= 1.99.9
-BuildRequires:	atk-devel >= 1.0.0
 BuildRequires:	pango-devel >= 1.0.0
-BuildRequires:	rpm-pythonprov
 BuildRequires:	python-devel >= 2.2
+BuildRequires:	rpm-pythonprov
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
