@@ -27,14 +27,14 @@ programów z u¿yciem biblioteki GTK+.
 
 %build
 %configure
-make OPT="$RPM_OPT_FLAGS"
+%{__make} OPT="$RPM_OPT_FLAGS"
 
 %install
 rm -rf $RPM_BUILD_ROOT
 
 mkdir -p $RPM_BUILD_ROOT%{_libdir}/python1.5/site-packages/%{pp_subname}
 echo %{pp_subname} > $RPM_BUILD_ROOT%{_libdir}/python1.5/site-packages/%{pp_subname}.pth
-make pyexecdir=$RPM_BUILD_ROOT%{_libdir}/python1.5/site-packages/%{pp_subname} \
+%{__make} pyexecdir=$RPM_BUILD_ROOT%{_libdir}/python1.5/site-packages/%{pp_subname} \
 	pythondir=$RPM_BUILD_ROOT%{_libdir}/python1.5/site-packages/%{pp_subname} \
 	includedir=$RPM_BUILD_ROOT%{_includedir} install
 	
