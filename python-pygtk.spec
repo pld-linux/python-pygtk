@@ -1,57 +1,81 @@
 #
-# todo:
-# 1. numpy? extensions?
-# 2. gtkgl module
-
-%include	/usr/lib/rpm/macros.python
+# Conditional build:
+%bcond_without	numpy	# without numpy features
+#
+# todo: extensions?
 
 %define		module	pygtk
 
-Summary:	Python bindings for Gtk+ 2.x libraries
-Summary(pl):	Wi±zania Pythona do bibliotek Gtk+ 2.x
+Summary:	Python bindings for GTK+ 2.x libraries
+Summary(pl):	Wi±zania Pythona do bibliotek GTK+ 2.x
 Name:		python-%{module}
-Version:	1.99.13
-Release:	2
+Version:	2.3.91
+Release:	1
+Epoch:		1
 License:	LGPL
 Group:		Libraries/Python
-Source0:	ftp://ftp.gtk.org/pub/gtk/python/v2.0/%{module}-%{version}.tar.gz
-URL:		http://daa.com.au/~james/pygtk
-%pyrequires_eq	python-modules
-BuildRequires:	libglade2-devel >= 2.0.0
-BuildRequires:	python-devel >= 2.2.1
+Source0:	http://ftp.gnome.org/pub/gnome/sources/%{module}/2.3/%{module}-%{version}.tar.bz2
+# Source0-md5:	8d95b4fce6a0bd060f4fd6a3db9671be
+Patch0:		%{name}-pyc.patch
+URL:		http://www.daa.com.au/~james/software/pygtk/
+BuildRequires:	atk-devel >= 1.0.0
+BuildRequires:	gtk+2-devel >= 2:2.4.0
+BuildRequires:	libglade2-devel >= 1:2.3.6
+BuildRequires:	pango-devel >= 1.0.0
+BuildRequires:	python-devel >= 1:2.3.2
+%{?with_numpy:BuildRequires:	python-numpy-devel}
 BuildRequires:	rpm-pythonprov
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-Python bindings for Gtk+ 2.x libraries. This package contains documentation
-and examples.
+Python bindings for GTK+ 2.x libraries. This package contains
+documentation and examples.
 
 %description -l pl
-Wi±zania Pythona do bibliotek Gtk+ 2.x. Ten pakiet zawiera dokumentacjê
+Wi±zania Pythona do bibliotek GTK+ 2.x. Pakiet zawiera dokumentacjê
 oraz przyk³ady.
 
 %package devel
-Summary:	Python bindings for Gtk+ 2.x libraries - development files
-Summary(pl):	Wi±zania Pythona do bibliotek Gtk+ 2.x - czê¶æ rozwojowa
+Summary:	Python bindings for GTK+ 2.x libraries - development files
+Summary(pl):	Wi±zania Pythona do bibliotek GTK+ 2.x - czê¶æ rozwojowa
 Group:		Development/Languages/Python
-Requires:	%{name}-atk = %{version}
-Requires:	%{name}-glade = %{version}
-Requires:	%{name}-gobject = %{version}
-Requires:	%{name}-gtk = %{version}
-Requires:	%{name}-pango = %{version}
+Requires:	%{name}-atk = %{epoch}:%{version}-%{release}
+Requires:	%{name}-glade = %{epoch}:%{version}-%{release}
+Requires:	%{name}-gobject = %{epoch}:%{version}-%{release}
+Requires:	%{name}-gtk = %{epoch}:%{version}-%{release}
+Requires:	%{name}-pango = %{epoch}:%{version}-%{release}
+Requires:	python-devel >= 1:2.3.2
+Obsoletes:	python-pygtk < 1:1.0
 
 %description devel
-This package contains files required to build wrappers for Gtk+ addon
+This package contains files required to build wrappers for GTK+ addon
 libraries so that they interoperate with Python bindings.
 
 %description devel -l pl
-Pakiet zawiera pliki wymagane do zbudowania funkcji do bibliotek Gtk+,
+Pakiet zawiera pliki wymagane do zbudowania funkcji do bibliotek GTK+,
 tak by mog³y te biblioteki kooperowaæ z wi±zaniami Pythona.
+
+%package examples
+Summary:	Example programs for pygtk
+Summary(pl):	Programy przyk³adowe do pygtk
+Group:		Development/Languages/Python
+Requires:	%{name}-devel = %{epoch}:%{version}-%{release}
+Obsoletes:	python-pygtk < 1:1.0
+
+%description examples
+This package contains example programs for pygtk.
+
+%description examples -l pl
+Ten pakiet zawiera przyk³adowe programy dla pygtk.
 
 %package gobject
 Summary:	Python bindings for GObject library
 Summary(pl):	Wi±zania Pythona do biblioteki GObject
 Group:		Libraries/Python
+%pyrequires_eq	python-modules
+Requires:	glib2 >= 1:2.4.0
+Conflicts:	python-pygtk < 1:1.0
+Obsoletes:	python-pygtk-glarea
 
 %description gobject
 Python bindings for GObject library.
@@ -60,23 +84,27 @@ Python bindings for GObject library.
 Wi±zania Pythona do biblioteki GObject.
 
 %package gtk
-Summary:	Python bindings for Gtk+ library
-Summary(pl):	Wi±zania Pythona do biblioteki Gtk+
+Summary:	Python bindings for GTK+ library
+Summary(pl):	Wi±zania Pythona do biblioteki GTK+
 Group:		Libraries/Python
-Requires:	%{name}-gobject = %{version}
-Conflicts:	%{name} < 1.0
+Requires:	%{name}-atk = %{epoch}:%{version}-%{release}
+Requires:	%{name}-pango = %{epoch}:%{version}-%{release}
+Requires:	gtk+2 >= 2:2.4.0
+Conflicts:	python-pygtk < 1:1.0
+Obsoletes:	python-pygtk-glarea
 
 %description gtk
-Python bindings for Gtk+ library.
+Python bindings for GTK+ library.
 
 %description gtk -l pl
-Wi±zania Pythona do biblioteki Gtk+.
+Wi±zania Pythona do biblioteki GTK+.
 
 %package atk
 Summary:	Python bindings for ATK library
 Summary(pl):	Wi±zania Pythona do biblioteki ATK
 Group:		Libraries/Python
-Requires:	%{name}-gobject = %{version}
+Requires:	%{name}-gobject = %{epoch}:%{version}-%{release}
+Requires:	atk >= 1.0.0
 
 %description atk
 Python bindings for ATK library.
@@ -88,7 +116,8 @@ Wi±zania Pythona do biblioteki ATK.
 Summary:	Python bindings for Pango library
 Summary(pl):	Wi±zania Pythona do biblioteki Pango
 Group:		Libraries/Python
-Requires:	%{name}-gobject = %{version}
+Requires:	%{name}-gobject = %{epoch}:%{version}-%{release}
+Requires:	pango >= 1.0.0
 
 %description pango
 Python bindings for Pango library.
@@ -100,7 +129,9 @@ Wi±zania Pythona do biblioteki Pango.
 Summary:	Python bindings for Glade library
 Summary(pl):	Wi±zania Pythona do biblioteki Glade
 Group:		Libraries/Python
-Requires:	%{name}-gtk = %{version}
+Requires:	%{name}-gtk = %{epoch}:%{version}-%{release}
+Requires:	libglade2 >= 1:2.3.6
+Obsoletes:	python-pygtk-libglade < 1:1.0
 
 %description glade
 Python bindings for Glade library.
@@ -109,32 +140,33 @@ Python bindings for Glade library.
 Wi±zania Pythona do biblioteki Glade.
 
 %prep
-%setup  -q -n %{module}-%{version}
+%setup -q -n %{module}-%{version}
+%patch0 -p1
 
 %build
+cp -f /usr/share/automake/config.sub .
 %configure \
-	--enable-thread
+	--enable-thread \
+	%{!?with_numpy:--disable-numpy}
+
 %{__make}
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT
 
-%{__make} install DESTDIR=$RPM_BUILD_ROOT
+%{__make} install \
+	DESTDIR=$RPM_BUILD_ROOT
 
-install -d $RPM_BUILD_ROOT%{_examplesdir}/%{name}
-cp -a examples/* $RPM_BUILD_ROOT%{_examplesdir}/%{name}
+install -d $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
+cp -a examples/* $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
 
+rm -f $RPM_BUILD_ROOT%{py_sitedir}/*/{*.la,*/*.la}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%files
-%defattr(644,root,root,755)
-%doc README ChangeLog NEWS MAPPING TODO THREADS AUTHORS
-%{_examplesdir}/%{name}
-
 %files devel
+%defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/*
 %{_includedir}/pygtk-2.0
 
@@ -147,32 +179,33 @@ rm -rf $RPM_BUILD_ROOT
 
 %{_pkgconfigdir}/*.pc
 
-%{py_sitedir}/pygtk.pth
+%files examples
+%defattr(644,root,root,755)
+%{_examplesdir}/%{name}-%{version}
 
 %files gobject
 %defattr(644,root,root,755)
+%doc README ChangeLog NEWS MAPPING TODO THREADS AUTHORS
+%dir %{py_sitedir}/gtk-2.0
+%{py_sitedir}/pygtk.pth
 %attr(755,root,root) %{py_sitedir}/gtk-2.0/gobject*.so
-%attr(755,root,root) %{py_sitedir}/gtk-2.0/gobject*.la
 
 %files gtk
 %defattr(644,root,root,755)
-%dir %{py_sitedir}/gtk-2.0
-%attr(755,root,root) %{py_sitedir}/gtk-2.0/gtk/*.py[co]
+%dir %{py_sitedir}/gtk-2.0/gtk
 %attr(755,root,root) %{py_sitedir}/gtk-2.0/gtk/_gtk*.so
-%attr(755,root,root) %{py_sitedir}/gtk-2.0/gtk/_gtk*.la
+%{py_sitedir}/gtk-2.0/gtk/*.py[co]
+%{py_sitedir}/gtk-2.0/*.py[co]
 %{py_sitedir}/*.py[co]
 
 %files atk
 %defattr(644,root,root,755)
 %attr(755,root,root) %{py_sitedir}/gtk-2.0/atk*.so
-%attr(755,root,root) %{py_sitedir}/gtk-2.0/atk*.la
 
 %files pango
 %defattr(644,root,root,755)
 %attr(755,root,root) %{py_sitedir}/gtk-2.0/pango*.so
-%attr(755,root,root) %{py_sitedir}/gtk-2.0/pango*.la
 
 %files glade
 %defattr(644,root,root,755)
 %attr(755,root,root) %{py_sitedir}/gtk-2.0/gtk/glade*.so
-%attr(755,root,root) %{py_sitedir}/gtk-2.0/gtk/glade*.la
