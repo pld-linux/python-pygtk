@@ -3,7 +3,7 @@ Summary(pl): GTK+ interface for Python language
 Name:        python-pygtk
 Version:     0.6.1
 Release:     1
-Copyright:   distributable
+Copyright:   GPL
 Group:       Development/Languages/Python
 Source:      pygtk-%{version}.tar.gz 
 #Icon:        linux-python-paint-icon.gif
