@@ -91,10 +91,10 @@ Summary(pl):	Wi±zania Pythona do biblioteki Glade
 Group:		Development/Languages/Python
 Requires:	%{name}-gtk = %{version}
 
-%description pango
+%description glade
 Python bindings for Glade library.
 
-%description pango -l pl
+%description glade -l pl
 Wi±zania Pythona do biblioteki Glade.
 
 %prep
