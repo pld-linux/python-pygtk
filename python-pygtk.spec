@@ -10,11 +10,11 @@
 Summary:	Python bindings for Gtk+ libraries - development files
 Summary(pl):	Wi±zania Pythona do bibliotek Gtk+ - czê¶æ rozwojowa
 Name:		python-%{module}
-Version:	1.99.7
-Release:	0.3
+Version:	1.99.8
+Release:	0.1
 License:	LGPL
 Group:		Development/Languages/Python
-Source0:	ftp://ftp.gtk.org/pub/gtk/python/v1.3/%{module}-%{version}.tar.gz
+Source0:	ftp://ftp.gtk.org/pub/gtk/python/v2.0/%{module}-%{version}.tar.gz
 URL:		http://daa.com.au/~james/pygtk
 Requires:	%{name}-atk
 Requires:	%{name}-glade
@@ -38,7 +38,7 @@ tak by mog³y te biblioteki kooperowaæ z wi±zaniami Pythona.
 %package gobject
 Summary:	Python bindings for GObject library
 Summary(pl):	Wi±zania Pythona do biblioteki GObject
-Group:		Development/Languages/Python
+Group:		Libraries/Python
 
 %description gobject
 Python bindings for GObject library.
@@ -49,7 +49,7 @@ Wi±zania Pythona do biblioteki GObject.
 %package gtk
 Summary:	Python bindings for Gtk+ library
 Summary(pl):	Wi±zania Pythona do biblioteki Gtk+
-Group:		Development/Languages/Python
+Group:		Libraries/Python
 Requires:	%{name}-gobject = %{version}
 Conflicts:	%{name} < 1.0
 
@@ -62,7 +62,7 @@ Wi±zania Pythona do biblioteki Gtk+.
 %package atk
 Summary:	Python bindings for ATK library
 Summary(pl):	Wi±zania Pythona do biblioteki ATK
-Group:		Development/Languages/Python
+Group:		Libraries/Python
 Requires:	%{name}-gobject = %{version}
 
 %description atk
@@ -74,7 +74,7 @@ Wi±zania Pythona do biblioteki ATK.
 %package pango
 Summary:	Python bindings for Pango library
 Summary(pl):	Wi±zania Pythona do biblioteki Pango
-Group:		Development/Languages/Python
+Group:		Libraries/Python
 Requires:	%{name}-gobject = %{version}
 
 %description pango
@@ -86,7 +86,7 @@ Wi±zania Pythona do biblioteki Pango.
 %package glade
 Summary:	Python bindings for Glade library
 Summary(pl):	Wi±zania Pythona do biblioteki Glade
-Group:		Development/Languages/Python
+Group:		Libraries/Python
 Requires:	%{name}-gtk = %{version}
 
 %description glade
