@@ -8,8 +8,9 @@ Version:	0.6.6
 Release:	5
 License:	LGPL
 Group:		Development/Languages/Python
+Group(de):	Entwicklung/Sprachen/Python
 Group(pl):	Programowanie/Jêzyki/Python
-Source:		%{module}-%{version}.tar.gz
+Source0:	%{module}-%{version}.tar.gz
 Requires:	python >= 1.5, gtk+ >= 1.2.6, imlib >= 1.8
 BuildRequires:	python-devel >= 1.5, gtk+-devel >= 1.2.6
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -27,7 +28,7 @@ programów z u¿yciem biblioteki GTK+.
 
 %build
 %configure
-%{__make} OPT="$RPM_OPT_FLAGS"
+%{__make} OPT="%{rpmcflags}"
 
 %install
 rm -rf $RPM_BUILD_ROOT
@@ -40,9 +41,9 @@ install -d $RPM_BUILD_ROOT%{python_sitepkgsdir}/%{module}
 	pthondir=%{python_sitepkgsdir}/%{module}
 	
 install -d $RPM_BUILD_ROOT%{_examplesdir}/%{name}
-mv examples/* $RPM_BUILD_ROOT%{_examplesdir}/%{name}
+mv -f examples/* $RPM_BUILD_ROOT%{_examplesdir}/%{name}
 
-mv $RPM_BUILD_ROOT%{python_sitepkgsdir}/*.py* \
+mv -f $RPM_BUILD_ROOT%{python_sitepkgsdir}/*.py* \
 	$RPM_BUILD_ROOT%{python_sitepkgsdir}/%{module}
 
 echo %{module} > $RPM_BUILD_ROOT%{python_sitepkgsdir}/%{module}.pth
