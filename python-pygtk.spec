@@ -5,7 +5,7 @@ Summary:	GTK+ interface for Python language
 Summary(pl):	Interfejs GTK+ dla jêzyka Python
 Name:		python-%{module}
 Version:	0.6.8
-Release:	1
+Release:	2
 License:	LGPL
 Group:		Development/Languages/Python
 Group(de):	Entwicklung/Sprachen/Python
