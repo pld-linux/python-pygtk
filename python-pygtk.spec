@@ -1,15 +1,16 @@
 
 #
 # todo:
-# 1. descriptions and summaries
-# 2. numpy? extensions?
+# 1. numpy? extensions?
+# 2. main package description - blah... blah... extensions and so on, read
+#    README in .tar.gz
 #
 
 %include /usr/lib/rpm/macros.python
 %define module pygtk
 
-Summary:	P
-Summary(pl):	P
+Summary:	Python bindings for Gtk+ libraries - development files
+Summary(pl):	Wi±zania Pythona do bibliotek Gtk+ - czê¶æ rozwojowa
 Name:		python-%{module}
 Version:	1.99.7
 Release:	0.2
@@ -33,63 +34,63 @@ N/A
 N/A
 
 %package gobject
-Summary:	GObject
-Summary(pl):	GObject
+Summary:	Python bindings for GObject library
+Summary(pl):	Wi±zania Pythona do biblioteki GObject
 Group:		Development/Languages/Python
 
 %description gobject
-N/A
+Python bindings for GObject library.
 
 %description gobject -l pl
-N/A
+Wi±zania Pythona do biblioteki GObject.
 
 %package gtk
-Summary:	GTK
-Summary(pl):	GTK
+Summary:	Python bindings for Gtk+ library
+Summary(pl):	Wi±zania Pythona do biblioteki Gtk+
 Group:		Development/Languages/Python
 Requires:	%{name}-gobject = %{version}
 
 %description gtk
-N/A
+Python bindings for Gtk+ library.
 
 %description gtk -l pl
-N/A
+Wi±zania Pythona do biblioteki Gtk+.
 
 %package atk
-Summary:	atk
-Summary(pl):	atk
+Summary:	Python bindings for ATK library
+Summary(pl):	Wi±zania Pythona do biblioteki ATK
 Group:		Development/Languages/Python
 Requires:	%{name}-gobject = %{version}
 
 %description atk
-N/A
+Python bindings for ATK library.
 
 %description atk -l pl
-N/A
+Wi±zania Pythona do biblioteki ATK.
 
 %package pango
-Summary:	pango
-Summary(pl):	pango
+Summary:	Python bindings for Pango library
+Summary(pl):	Wi±zania Pythona do biblioteki Pango
 Group:		Development/Languages/Python
 Requires:	%{name}-gobject = %{version}
 
 %description pango
-N/A
+Python bindings for Pango library.
 
 %description pango -l pl
-N/A
+Wi±zania Pythona do biblioteki Pango.
 
 %package glade
-Summary:	glade
-Summary(pl):	glade
+Summary:	Python bindings for Glade library
+Summary(pl):	Wi±zania Pythona do biblioteki Glade
 Group:		Development/Languages/Python
 Requires:	%{name}-gtk = %{version}
 
-%description glade
-N/A
+%description pango
+Python bindings for Glade library.
 
-%description glade -l pl
-N/A
+%description pango -l pl
+Wi±zania Pythona do biblioteki Glade.
 
 %prep
 %setup  -q -n %{module}-%{version}
