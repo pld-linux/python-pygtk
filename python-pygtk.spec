@@ -14,6 +14,7 @@ Release:	1
 License:	LGPL
 Group:		Libraries/Python
 Source0:	http://ftp.gnome.org/pub/gnome/sources/%{module}/1.99/%{module}-%{version}.tar.bz2
+# Source0-md5: ae7fa3161942cc719712df42551ddfea
 Patch0:		%{name}-pyc.patch
 URL:		http://daa.com.au/~james/pygtk
 %pyrequires_eq	python-modules
