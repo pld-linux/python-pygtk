@@ -1,17 +1,16 @@
-
 #
 # todo:
 # 1. numpy? extensions?
-#
 
-%include /usr/lib/rpm/macros.python
-%define module pygtk
+%include	/usr/lib/rpm/macros.python
+
+%define		module	pygtk
 
 Summary:	Python bindings for Gtk+ libraries - development files
 Summary(pl):	Wi±zania Pythona do bibliotek Gtk+ - czê¶æ rozwojowa
 Name:		python-%{module}
 Version:	1.99.8
-Release:	0.1
+Release:	1
 License:	LGPL
 Group:		Development/Languages/Python
 Source0:	ftp://ftp.gtk.org/pub/gtk/python/v2.0/%{module}-%{version}.tar.gz
@@ -21,9 +20,9 @@ Requires:	%{name}-glade
 Requires:	%{name}-gobject
 Requires:	%{name}-gtk
 Requires:	%{name}-pango
-%pyrequires_eq    python-modules
+%pyrequires_eq	python-modules
 BuildRequires:	libglade2-devel >= 1.99.9
-BuildRequires:	python-devel >= 2.2
+BuildRequires:	python-devel >= 2.2.1
 BuildRequires:	rpm-pythonprov
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
