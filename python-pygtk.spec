@@ -11,22 +11,6 @@ Icon: linux-python-paint-icon.gif
 BuildRoot:	/tmp/%{name}-%{version}-root
 Requires: python >= 1.5, gtk+ >= 1.1.9, imlib >= 1.8
 
-%changelog
-
-* Sun Dec 27 1998 Oliver Andrich <oli@andrich.net>
-
-- updated package to version 0.5.9 which requires the recent developer version
-	of gtk
-
-* Sun Oct 04 1998 Oliver Andrich <oli@andrich.net>
-
-- updated package to version 0.5.3 which requires the recent developer version
-	of gtk
-
-* Sun Aug 09 1998 Oliver Andrich <oli@andrich.net>
-
-- created the package 
-
 %description
 This archive contains modules that allow you to use gtk in Python
 programs.  At present, it is a fairly complete set of bindings.
