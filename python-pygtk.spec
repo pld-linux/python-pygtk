@@ -33,11 +33,11 @@ oraz przyk³ady.
 Summary:	Python bindings for Gtk+ 2.x libraries - development files
 Summary(pl):	Wi±zania Pythona do bibliotek Gtk+ 2.x - czê¶æ rozwojowa
 Group:		Development/Languages/Python
-%requires_eq	%{name}-atk
-%requires_eq	%{name}-glade
-%requires_eq	%{name}-gobject
-%requires_eq	%{name}-gtk
-%requires_eq	%{name}-pango
+Requires:	%{name}-atk = %{version}
+Requires:	%{name}-glade = %{version}
+Requires:	%{name}-gobject = %{version}
+Requires:	%{name}-gtk = %{version}
+Requires:	%{name}-pango = %{version}
 
 %description devel
 This package contains files required to build wrappers for Gtk+ addon
