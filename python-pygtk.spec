@@ -9,17 +9,17 @@
 Summary:	Python bindings for GTK+ 2.x libraries
 Summary(pl):	Wi±zania Pythona do bibliotek GTK+ 2.x
 Name:		python-%{module}
-Version:	2.3.92
+Version:	2.3.93
 Release:	1
 Epoch:		1
 License:	LGPL
 Group:		Libraries/Python
 Source0:	http://ftp.gnome.org/pub/gnome/sources/%{module}/2.3/%{module}-%{version}.tar.bz2
-# Source0-md5:	e11335eac41e20a1383f51995cd0d964
+# Source0-md5:	e7233959193536b62713df9b45c1e02c
 Patch0:		%{name}-pyc.patch
 URL:		http://www.pygtk.org/
 BuildRequires:	atk-devel >= 1.0.0
-BuildRequires:	gtk+2-devel >= 2:2.4.0
+BuildRequires:	gtk+2-devel >= 2:2.4.4
 BuildRequires:	libglade2-devel >= 1:2.4.0
 BuildRequires:	pango-devel >= 1.0.0
 BuildRequires:	python-devel >= 1:2.3.2
@@ -73,7 +73,7 @@ Summary:	Python bindings for GObject library
 Summary(pl):	Wi±zania Pythona do biblioteki GObject
 Group:		Libraries/Python
 %pyrequires_eq	python-modules
-Requires:	glib2 >= 1:2.4.0
+Requires:	glib2 >= 1:2.4.4
 Conflicts:	python-pygtk < 1:1.0
 Obsoletes:	python-pygtk-glarea
 
@@ -89,7 +89,7 @@ Summary(pl):	Wi±zania Pythona do biblioteki GTK+
 Group:		Libraries/Python
 Requires:	%{name}-atk = %{epoch}:%{version}-%{release}
 Requires:	%{name}-pango = %{epoch}:%{version}-%{release}
-Requires:	gtk+2 >= 2:2.4.0
+Requires:	gtk+2 >= 2:2.4.4
 Conflicts:	python-pygtk < 1:1.0
 Obsoletes:	python-pygtk-glarea
 
