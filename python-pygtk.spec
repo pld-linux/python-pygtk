@@ -172,8 +172,8 @@ rm -rf $RPM_BUILD_ROOT
 %files gtk
 %defattr(644,root,root,755)
 %dir %{py_sitedir}/gtk-2.0
-%attr(755,root,root) %{py_sitedir}/gtk-2.0/gtk/*.py[co]
 %attr(755,root,root) %{py_sitedir}/gtk-2.0/gtk/_gtk*.so
+%{py_sitedir}/gtk-2.0/gtk/*.py[co]
 %{py_sitedir}/gtk-2.0/gtk/_gtk*.la
 %{py_sitedir}/*.py[co]
 
