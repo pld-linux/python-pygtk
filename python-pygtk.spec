@@ -21,7 +21,7 @@ Requires:	%{name}-glade
 Requires:	%{name}-gobject
 Requires:	%{name}-gtk
 Requires:	%{name}-pango
-%requires_eq    python-modules
+%pyrequires_eq    python-modules
 BuildRequires:	libglade2-devel >= 1.99.9
 BuildRequires:	python-devel >= 2.2
 BuildRequires:	rpm-pythonprov
