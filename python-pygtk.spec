@@ -22,7 +22,7 @@ Patch0:		%{name}-pyc.patch
 URL:		http://www.daa.com.au/~james/software/pygtk/
 BuildRequires:	gtkglarea-devel >= 1.99.0
 BuildRequires:	libglade2-devel >= 2.0.1
-BuildRequires:	python-devel >= 2.3.2
+BuildRequires:	python-devel >= 1:2.3.2
 %{?with_numpy:BuildRequires:	python-numpy-devel}
 BuildRequires:	rpm-pythonprov
 %pyrequires_eq	python-modules
@@ -46,7 +46,7 @@ Requires:	%{name}-glade = %{epoch}:%{version}
 Requires:	%{name}-gobject = %{epoch}:%{version}
 Requires:	%{name}-gtk = %{epoch}:%{version}
 Requires:	%{name}-pango = %{epoch}:%{version}
-Requires:	python-devel >= 2.3.2
+Requires:	python-devel >= 1:2.3.2
 Obsoletes:	python-pygtk < 1:1.0
 
 %description devel
