@@ -8,7 +8,7 @@ Group: Development/Languages/Python
 Source0: pygtk-0.5.9.tar.gz 
 Source1: PyGTK.pth
 Icon: linux-python-paint-icon.gif
-BuildRoot: /tmp/py-root
+BuildRoot:	/tmp/%{name}-%{version}-root
 Requires: python >= 1.5, gtk+ >= 1.1.9, imlib >= 1.8
 
 %changelog
