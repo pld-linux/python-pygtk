@@ -19,6 +19,7 @@ Group:		Development/Languages/Python
 Source0:	ftp://ftp.gtk.org/pub/gtk/python/v1.3/%{module}-%{version}.tar.gz
 URL:		http://daa.com.au/~james/pygtk
 Requires:	%{name}-atk
+Requires:	%{name}-glade
 Requires:	%{name}-gobject
 Requires:	%{name}-gtk
 Requires:	%{name}-pango
