@@ -29,7 +29,6 @@ BuildRequires:	libtool
 BuildRequires:	pango-devel >= 1.8.0
 BuildRequires:	python-devel >= 1:2.3.2
 %{?with_numpy:BuildRequires:	python-numpy-devel}
-BuildRequires:	rpm-pythonprov
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
