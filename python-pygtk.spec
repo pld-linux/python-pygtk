@@ -1,6 +1,7 @@
+%define pp_subname pygtk
 Summary:       GTK+ interface for Python language
 Summary(pl):   Interfejs GTK+ dla jêzyka Python
-Name:          python-pygtk
+Name:          python-%{pp_subname}
 Version:       0.6.1
 Release:       1
 Copyright:     GPL
@@ -29,12 +30,10 @@ make OPT="$RPM_OPT_FLAGS"
 
 %install
 rm -rf $RPM_BUILD_ROOT
-mkdir -p $RPM_BUILD_ROOT%{_libdir}/python1.5/site-packages/PyGTK
-echo %{_libdir}/python1.5/site-packages/PyGTK \
-	> $RPM_BUILD_ROOT%{_libdir}/python1.5/site-packages/PyGTK.pth
-make pyexecdir=$RPM_BUILD_ROOT%{_libdir}/python1.5/site-packages/PyGTK \
-	pythondir=$RPM_BUILD_ROOT%{_libdir}/python1.5/site-packages/PyGTK install
-	
+mkdir -p $RPM_BUILD_ROOT%{_libdir}/python1.5/site-packages/%{pp_subname}
+echo %{pp_subname} > $RPM_BUILD_ROOT%{_libdir}/python1.5/site-packages/%{pp_subname}.pth
+make pyexecdir=$RPM_BUILD_ROOT%{_libdir}/python1.5/site-packages/%{pp_subname} \
+	pythondir=$RPM_BUILD_ROOT%{_libdir}/python1.5/site-packages/%{pp_subname} install
 	
 gzip -9nf COPYING ChangeLog README
 tar czf examples.tar.gz examples
@@ -44,5 +43,5 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %doc {COPYING,ChangeLog,README,examples.tar}.gz
-%{_libdir}/python1.5/site-packages/PyGTK.pth
-%{_libdir}/python1.5/site-packages/PyGTK
+%{_libdir}/python1.5/site-packages/%{pp_subname}.pth
+%{_libdir}/python1.5/site-packages/%{pp_subname}
