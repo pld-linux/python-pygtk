@@ -1,0 +1,13 @@
+
+- added using CVS keywords in %changelog (for automating them).
+
+* Sun Dec 27 1998 Oliver Andrich <oli@andrich.net>
+- updated package to version 0.5.9 which requires the recent developer version
+	of gtk
+
+* Sun Oct 04 1998 Oliver Andrich <oli@andrich.net>
+- updated package to version 0.5.3 which requires the recent developer version
+	of gtk
+
+* Sun Aug 09 1998 Oliver Andrich <oli@andrich.net>
+- created the package
