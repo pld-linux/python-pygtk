@@ -65,7 +65,7 @@ Summary:	Example programs for pygtk
 Summary(pl):	Programy przyk³adowe do pygtk
 Group:		Development/Languages/Python
 Requires:	%{name}-devel = %{epoch}:%{version}-%{release}
-Obsoletes:	python-pygtk < 1:1.0
+Obsoletes:	python-pygtk
 
 %description examples
 This package contains example programs for pygtk.
