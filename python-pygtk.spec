@@ -18,7 +18,7 @@ Version:	1.99.7
 Release:	0.1
 License:	GPL
 Group:		Development/Languages/Python
-Source0:	%{module}-%{version}.tar.gz
+Source0:	ftp://ftp.gtk.org:/pub/gtk/python/v1.3/%{module}-%{version}.tar.gz
 URL:		http://daa.com.au/~james/pygtk
 %requires_eq    python-modules
 BuildRequires:	gtk+-devel
