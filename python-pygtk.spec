@@ -21,7 +21,8 @@ Group:		Development/Languages/Python
 Source0:	ftp://ftp.gtk.org/pub/gtk/python/v1.3/%{module}-%{version}.tar.gz
 URL:		http://daa.com.au/~james/pygtk
 %requires_eq    python-modules
-BuildRequires:	gtk+-devel
+BuildRequires:	gtk+2-devel
+BuildRequires:	libglade2-devel
 BuildRequires:	atk-devel
 BuildRequires:	pango-devel
 BuildRequires:	rpm-pythonprov
