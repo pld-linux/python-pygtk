@@ -1,29 +1,28 @@
-%define pp_subname pygtk
+%define module pygtk
 
-Summary:       GTK+ interface for Python language
-Summary(pl):   Interfejs GTK+ dla jêzyka Python
-Name:          python-%{pp_subname}
-Version:       0.6.5
-Release:       1
-Copyright:     GPL
-Group:         Development/Languages/Python
-Group(pl):     Programowanie/Jêzyki/Python
-Source:        pygtk-%{version}.tar.gz 
-#Icon:          linux-python-paint-icon.gif
+Summary:	GTK+ interface for Python language
+Summary(pl):	Interfejs GTK+ dla jêzyka Python
+Name:		python-%{module}
+Version:	0.6.6
+Release:	2
+License:	LGPL
+Group:		Development/Languages/Python
+Group(pl):	Programowanie/Jêzyki/Python
+Source:		%{module}-%{version}.tar.gz
+Requires:	python >= 1.5, gtk+ >= 1.2.6, imlib >= 1.8
+BuildRequires:	python-devel >= 1.5, gtk+-devel >= 1.2.6
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
-Requires:      python >= 1.5, gtk+ >= 1.2.1, imlib >= 1.8
-BuildRequires: python-devel >= 1.5
 
 %description
 This archive contains modules that allow you to use gtk+ in Python
-programs. 
+programs.
 
 %description -l pl
 Pakiet ten zawiera modu³y dla jêzyka Python umo¿liwiaj±ce tworzenie
 programów z u¿yciem biblioteki GTK+.
 
 %prep
-%setup -n pygtk-%{version}
+%setup -q -n %{module}-%{version}
 
 %build
 %configure
@@ -32,15 +31,21 @@ programów z u¿yciem biblioteki GTK+.
 %install
 rm -rf $RPM_BUILD_ROOT
 
-mkdir -p $RPM_BUILD_ROOT%{_libdir}/python1.5/site-packages/%{pp_subname}
-echo %{pp_subname} > $RPM_BUILD_ROOT%{_libdir}/python1.5/site-packages/%{pp_subname}.pth
-%{__make} pyexecdir=$RPM_BUILD_ROOT%{_libdir}/python1.5/site-packages/%{pp_subname} \
-	pythondir=$RPM_BUILD_ROOT%{_libdir}/python1.5/site-packages/%{pp_subname} \
-	includedir=$RPM_BUILD_ROOT%{_includedir} install
+install -d $RPM_BUILD_ROOT%{_libdir}/python1.5/site-packages/%{module}
+
+%{__make} install \
+	DESTDIR=$RPM_BUILD_ROOT \
+	pyexecdir=%{_libdir}/python1.5/site-packages/%{module} \
+	pthondir=%{_libdir}/python1.5/site-packages/%{module}
 	
-# examples
-install -d $RPM_BUILD_ROOT/usr/src/examples/%{name}
-mv examples/* $RPM_BUILD_ROOT/usr/src/examples/%{name}
+install -d $RPM_BUILD_ROOT%{_prefix}/src/examples/%{name}
+mv examples/* $RPM_BUILD_ROOT%{_prefix}/src/examples/%{name}
+
+mv $RPM_BUILD_ROOT%{_libdir}/python1.5/site-packages/*.py* \
+	$RPM_BUILD_ROOT%{_libdir}/python1.5/site-packages/%{module}
+
+echo %{module} > $RPM_BUILD_ROOT%{_libdir}/python1.5/site-packages/%{module}.pth
+echo pyglade > $RPM_BUILD_ROOT%{_libdir}/python1.5/site-packages/pyglade.pth
 
 gzip -9nf COPYING ChangeLog README MAPPING
 
@@ -48,8 +53,11 @@ gzip -9nf COPYING ChangeLog README MAPPING
 rm -rf $RPM_BUILD_ROOT
 
 %files
-%doc {COPYING,ChangeLog,README,MAPPING}.gz
-%{_libdir}/python1.5/site-packages/%{pp_subname}.pth
-%{_libdir}/python1.5/site-packages/%{pp_subname}
-%{_includedir}/%{pp_subname}/
-/usr/src/examples/%{name}
+%defattr(644,root,root,755)
+%doc {ChangeLog,README,MAPPING}.gz
+%{_libdir}/python1.5/site-packages/%{module}.pth
+%{_libdir}/python1.5/site-packages/%{module}
+%{_libdir}/python1.5/site-packages/pyglade.pth
+%{_libdir}/python1.5/site-packages/pyglade
+%{_includedir}/%{module}/
+%attr(-,root,root) %{_prefix}/src/examples/%{name}
