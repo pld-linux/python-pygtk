@@ -2,8 +2,6 @@
 #
 # todo:
 # 1. numpy? extensions?
-# 2. main package description - blah... blah... extensions and so on, read
-#    README in .tar.gz
 #
 
 %include /usr/lib/rpm/macros.python
@@ -13,8 +11,8 @@ Summary:	Python bindings for Gtk+ libraries - development files
 Summary(pl):	Wi±zania Pythona do bibliotek Gtk+ - czê¶æ rozwojowa
 Name:		python-%{module}
 Version:	1.99.7
-Release:	0.2
-License:	GPL
+Release:	0.3
+License:	LGPL
 Group:		Development/Languages/Python
 Source0:	ftp://ftp.gtk.org/pub/gtk/python/v1.3/%{module}-%{version}.tar.gz
 URL:		http://daa.com.au/~james/pygtk
@@ -30,10 +28,12 @@ BuildRequires:	rpm-pythonprov
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-N/A
+This package contains files required to build wrappers for Gtk+ addon
+libraries so that they interoperate with Python bindings.
 
 %description -l pl
-N/A
+Pakiet zawiera pliki wymagane do zbudowania funkcji do bibliotek Gtk+,
+tak by mog³y te biblioteki kooperowaæ z wi±zaniami Pythona.
 
 %package gobject
 Summary:	Python bindings for GObject library
