@@ -1,6 +1,7 @@
 #
 # todo:
 # 1. numpy? extensions?
+# 2. gtkgl module
 
 %include	/usr/lib/rpm/macros.python
 
@@ -10,7 +11,7 @@ Summary:	Python bindings for Gtk+ 2.x libraries
 Summary(pl):	Wi±zania Pythona do bibliotek Gtk+ 2.x
 Name:		python-%{module}
 Version:	1.99.13
-Release:	1
+Release:	2
 License:	LGPL
 Group:		Libraries/Python
 Source0:	ftp://ftp.gtk.org/pub/gtk/python/v2.0/%{module}-%{version}.tar.gz
@@ -111,7 +112,8 @@ Wi±zania Pythona do biblioteki Glade.
 %setup  -q -n %{module}-%{version}
 
 %build
-%configure
+%configure \
+	--enable-thread
 %{__make}
 
 %install
