@@ -24,10 +24,7 @@ Requires:	%{name}-gobject
 Requires:	%{name}-gtk
 Requires:	%{name}-pango
 %requires_eq    python-modules
-BuildRequires:	atk-devel >= 1.0.0
-BuildRequires:	gtk+2-devel >= 2.0.0
 BuildRequires:	libglade2-devel >= 1.99.9
-BuildRequires:	pango-devel >= 1.0.0
 BuildRequires:	python-devel >= 2.2
 BuildRequires:	rpm-pythonprov
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
