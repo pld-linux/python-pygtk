@@ -160,6 +160,13 @@ rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
 cp -a examples/* $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
 
+# handle the py_sitescriptdir/py_sitedir package split
+cp $RPM_BUILD_ROOT%{py_sitedir}/pygtk.pth $RPM_BUILD_ROOT%{py_sitescriptdir}
+touch $RPM_BUILD_ROOT%{py_sitedir}/gtk-2.0/gtk/__init__.py
+%py_comp $RPM_BUILD_ROOT%{py_sitedir}/gtk-2.0/gtk/
+%py_ocomp $RPM_BUILD_ROOT%{py_sitedir}/gtk-2.0/gtk/
+rm $RPM_BUILD_ROOT%{py_sitedir}/gtk-2.0/gtk/__init__.py
+
 rm -f $RPM_BUILD_ROOT%{py_sitedir}/*/{*.la,*/*.la}
 
 %clean
@@ -187,6 +194,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc README ChangeLog NEWS MAPPING TODO THREADS AUTHORS
 %dir %{py_sitedir}/gtk-2.0
+%{py_sitescriptdir}/pygtk.pth
 %{py_sitedir}/pygtk.pth
 %attr(755,root,root) %{py_sitedir}/gtk-2.0/gobject*.so
 
@@ -195,8 +203,9 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{py_sitedir}/gtk-2.0/gtk
 %attr(755,root,root) %{py_sitedir}/gtk-2.0/gtk/_gtk*.so
 %{py_sitedir}/gtk-2.0/gtk/*.py[co]
-%{py_sitedir}/gtk-2.0/*.py[co]
-%{py_sitedir}/*.py[co]
+%{py_sitescriptdir}/gtk-2.0/gtk/*.py[co]
+%{py_sitescriptdir}/gtk-2.0/*.py[co]
+%{py_sitescriptdir}/*.py[co]
 
 %files atk
 %defattr(644,root,root,755)
