@@ -15,6 +15,7 @@ Release:	2
 License:	LGPL
 Group:		Libraries/Python
 Source0:	ftp://ftp.gtk.org/pub/gtk/python/v2.0/%{module}-%{version}.tar.gz
+Patch0:		%{name}-pyc.patch
 URL:		http://daa.com.au/~james/pygtk
 %pyrequires_eq	python-modules
 BuildRequires:	libglade2-devel >= 2.0.0
@@ -110,6 +111,7 @@ Wi±zania Pythona do biblioteki Glade.
 
 %prep
 %setup  -q -n %{module}-%{version}
+%patch0 -p1
 
 %build
 %configure \
