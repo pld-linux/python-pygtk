@@ -11,7 +11,7 @@ Summary:	Python bindings for Gtk+ 2.x libraries
 Summary(pl):	Wi±zania Pythona do bibliotek Gtk+ 2.x
 Name:		python-%{module}
 Version:	1.99.13
-Release:	2
+Release:	3
 License:	LGPL
 Group:		Libraries/Python
 Source0:	ftp://ftp.gtk.org/pub/gtk/python/v2.0/%{module}-%{version}.tar.gz
@@ -150,10 +150,9 @@ rm -rf $RPM_BUILD_ROOT
 
 %{_pkgconfigdir}/*.pc
 
-%{py_sitedir}/pygtk.pth
-
 %files gobject
 %defattr(644,root,root,755)
+%{py_sitedir}/pygtk.pth
 %attr(755,root,root) %{py_sitedir}/gtk-2.0/gobject*.so
 %attr(755,root,root) %{py_sitedir}/gtk-2.0/gobject*.la
 
