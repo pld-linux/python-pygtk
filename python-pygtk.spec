@@ -5,7 +5,7 @@ Summary:	GTK+ interface for Python language
 Summary(pl):	Interfejs GTK+ dla jêzyka Python
 Name:		python-%{module}
 Version:	0.6.6
-Release:	4
+Release:	5
 License:	LGPL
 Group:		Development/Languages/Python
 Group(pl):	Programowanie/Jêzyki/Python
@@ -39,8 +39,8 @@ install -d $RPM_BUILD_ROOT%{python_sitepkgsdir}/%{module}
 	pyexecdir=%{python_sitepkgsdir}/%{module} \
 	pthondir=%{python_sitepkgsdir}/%{module}
 	
-install -d $RPM_BUILD_ROOT%{_prefix}/src/examples/%{name}
-mv examples/* $RPM_BUILD_ROOT%{_prefix}/src/examples/%{name}
+install -d $RPM_BUILD_ROOT%{_examplesdir}/%{name}
+mv examples/* $RPM_BUILD_ROOT%{_examplesdir}/%{name}
 
 mv $RPM_BUILD_ROOT%{python_sitepkgsdir}/*.py* \
 	$RPM_BUILD_ROOT%{python_sitepkgsdir}/%{module}
@@ -61,4 +61,4 @@ rm -rf $RPM_BUILD_ROOT
 %{python_sitepkgsdir}/pyglade.pth
 %{python_sitepkgsdir}/pyglade
 %{_includedir}/%{module}/
-%attr(-,root,root) %{_prefix}/src/examples/%{name}
+%attr(-,root,root) %{_examplesdir}/%{name}
