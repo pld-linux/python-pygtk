@@ -1,6 +1,8 @@
 #
-# todo:
-# 1. numpy? extensions?
+# Conditional build:
+%bcond_without	numpy	# without numpy features
+#
+# todo: extensions?
 
 %include	/usr/lib/rpm/macros.python
 
@@ -18,12 +20,13 @@ Source0:	http://ftp.gnome.org/pub/gnome/sources/%{module}/2.0/%{module}-%{versio
 # Source0-md5:	14db9cfffe31f6df0351bd5fec69f606
 Patch0:		%{name}-pyc.patch
 URL:		http://www.daa.com.au/~james/software/pygtk/
-%pyrequires_eq	python-modules
 BuildRequires:	gtkglarea-devel >= 1.99.0
 BuildRequires:	libglade2-devel >= 2.0.1
 BuildRequires:	python-devel >= 2.3.2
+%{?with_numpy:BuildRequires:	python-numpy-devel}
 BuildRequires:	rpm-pythonprov
-Requires:	python-numpy
+%pyrequires_eq	python-modules
+%{?with_numpy:Requires:	python-numpy}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -135,7 +138,9 @@ Wi±zania Pythona do biblioteki GtkGLArea.
 
 %build
 %configure \
-	--enable-thread
+	--enable-thread \
+	%{!?with_numpy:--disable-numpy}
+
 %{__make}
 
 %install
