@@ -9,13 +9,13 @@
 Summary:	Python bindings for GTK+ 2.x libraries
 Summary(pl):	Wi±zania Pythona do bibliotek GTK+ 2.x
 Name:		python-%{module}
-Version:	2.5.3
+Version:	2.5.4
 Release:	1
 Epoch:		2
 License:	LGPL
 Group:		Libraries/Python
 Source0:	http://ftp.gnome.org/pub/gnome/sources/pygtk/2.5/%{module}-%{version}.tar.bz2
-# Source0-md5:	e6fc2b4d4ed19c5fbfd158b9c2edd3ba
+# Source0-md5:	cab746f510e389bfe7cbf4d63c7cfb01
 Source1:	%{name}-python.m4
 Source2:	%{name}-jhflags.m4
 Patch0:		%{name}-pyc.patch
@@ -174,6 +174,9 @@ install -d $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
 cp -a examples/* $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
 
 rm -f $RPM_BUILD_ROOT%{py_sitedir}/*/{*.la,*/*.la}
+rm -f $RPM_BUILD_ROOT%{py_sitedir}/{*.py,*/*.py,*/*/*.py}
+rm -f $RPM_BUILD_ROOT%{_datadir}/pygtk/2.0/codegen/*.py
+rm -rf $RPM_BUILD_ROOT%{_libdir}/pygtk/2.0/{demos,pygtk-demo*}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
