@@ -11,7 +11,7 @@ Group(pl):     Programowanie/Jêzyki/Python
 Source:        pygtk-%{version}.tar.gz 
 Patch0:        pygtk_table.patch
 #Icon:          linux-python-paint-icon.gif
-BuildRoot:	   /tmp/%{name}-%{version}-root
+BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Requires:      python >= 1.5, gtk+ >= 1.2.1, imlib >= 1.8
 BuildRequires: python-devel >= 1.5
 
