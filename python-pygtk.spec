@@ -20,13 +20,13 @@ Source1:	%{name}-python.m4
 Source2:	%{name}-jhflags.m4
 Patch0:		%{name}-pyc.patch
 URL:		http://www.pygtk.org/
-BuildRequires:	atk-devel >= 1.9.0
+BuildRequires:	atk-devel >= 1:1.9.1
 BuildRequires:	autoconf >= 2.52
 BuildRequires:	automake
-BuildRequires:	gtk+2-devel >= 2:2.6.2
-BuildRequires:	libglade2-devel >= 1:2.5.0
+BuildRequires:	gtk+2-devel >= 2:2.6.4
+BuildRequires:	libglade2-devel >= 1:2.5.1
 BuildRequires:	libtool
-BuildRequires:	pango-devel >= 1.8.0
+BuildRequires:	pango-devel >= 1:1.8.1
 BuildRequires:	python-devel >= 1:2.3.2
 %{?with_numpy:BuildRequires:	python-numpy-devel}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -160,7 +160,6 @@ cp %{SOURCE2} m4/jhflags.m4
 %configure \
 	--enable-thread \
 	%{!?with_numpy:--disable-numpy}
-
 %{__make}
 
 %install
