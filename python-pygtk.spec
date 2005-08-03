@@ -9,13 +9,13 @@
 Summary:	Python bindings for GTK+ 2.x libraries
 Summary(pl):	Wi±zania Pythona do bibliotek GTK+ 2.x
 Name:		python-%{module}
-Version:	2.7.1
+Version:	2.7.2
 Release:	1
 Epoch:		2
 License:	LGPL
 Group:		Libraries/Python
 Source0:	http://ftp.gnome.org/pub/gnome/sources/pygtk/2.7/%{module}-%{version}.tar.bz2
-# Source0-md5:	895cb1a27230e98081a8f739cff6c2f2
+# Source0-md5:	32da6326ff8989628ebf37c221369f91
 Source1:	%{name}-python.m4
 Source2:	%{name}-jhflags.m4
 Source3:	%{name}-pangocairo.defs
@@ -153,7 +153,7 @@ Wi±zania Pythona do biblioteki Glade.
 mkdir m4
 cp %{SOURCE1} m4/python.m4
 cp %{SOURCE2} m4/jhflags.m4
-cp %{SOURCE3} .
+cp %{SOURCE3} pangocairo.defs
 
 %build
 %{__libtoolize}
