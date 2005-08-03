@@ -97,6 +97,7 @@ Group:		Libraries/Python
 Requires:	%{name}-atk = %{epoch}:%{version}-%{release}
 Requires:	%{name}-pango = %{epoch}:%{version}-%{release}
 Requires:	gtk+2 >= 2:2.7.4
+Requires:	python-pycairo
 Conflicts:	python-pygtk < 1:1.0
 Obsoletes:	python-pygtk-glarea
 
@@ -125,6 +126,7 @@ Summary(pl):	Wi±zania Pythona do biblioteki Pango
 Group:		Libraries/Python
 Requires:	%{name}-gobject = %{epoch}:%{version}-%{release}
 Requires:	pango > 1.9.0
+Requires:	python-pycairo
 
 %description pango
 Python bindings for Pango library.
