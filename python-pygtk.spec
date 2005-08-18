@@ -10,7 +10,7 @@ Summary:	Python bindings for GTK+ 2.x libraries
 Summary(pl):	Wi±zania Pythona do bibliotek GTK+ 2.x
 Name:		python-%{module}
 Version:	2.7.3
-Release:	1
+Release:	2
 Epoch:		2
 License:	LGPL
 Group:		Libraries/Python
@@ -24,8 +24,8 @@ URL:		http://www.pygtk.org/
 BuildRequires:	atk-devel >= 1:1.8.1
 BuildRequires:	autoconf >= 2.52
 BuildRequires:	automake
-BuildRequires:	glib2-devel >= 1:2.7.4
-BuildRequires:	gtk+2-devel >= 2:2.7.4
+BuildRequires:	glib2-devel >= 1:2.8.0
+BuildRequires:	gtk+2-devel >= 2:2.8.0
 BuildRequires:	libglade2-devel >= 1:2.5.1
 BuildRequires:	libtool
 BuildRequires:	pango-devel >= 1:1.9.0
