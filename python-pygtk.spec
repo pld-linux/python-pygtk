@@ -9,16 +9,15 @@
 Summary:	Python bindings for GTK+ 2.x libraries
 Summary(pl):	Wi您ania Pythona do bibliotek GTK+ 2.x
 Name:		python-%{module}
-Version:	2.7.3
-Release:	2
+Version:	2.7.4
+Release:	1
 Epoch:		2
 License:	LGPL
 Group:		Libraries/Python
 Source0:	http://ftp.gnome.org/pub/gnome/sources/pygtk/2.7/%{module}-%{version}.tar.bz2
-# Source0-md5:	17986ed00ce4b3fb3e699c7f3735942c
+# Source0-md5:	103670cb22c6cb65375dbd68aa727315
 Source1:	%{name}-python.m4
 Source2:	%{name}-jhflags.m4
-Source3:	%{name}-pangocairo.defs
 Patch0:		%{name}-pyc.patch
 URL:		http://www.pygtk.org/
 BuildRequires:	atk-devel >= 1:1.8.1
@@ -28,10 +27,10 @@ BuildRequires:	glib2-devel >= 1:2.8.0
 BuildRequires:	gtk+2-devel >= 2:2.8.0
 BuildRequires:	libglade2-devel >= 1:2.5.1
 BuildRequires:	libtool
-BuildRequires:	pango-devel >= 1:1.9.0
+BuildRequires:	pango-devel >= 1:1.10.0
 BuildRequires:	python-devel >= 1:2.3.2
 %{?with_numpy:BuildRequires:	python-numpy-devel}
-BuildRequires:	python-pycairo-devel
+BuildRequires:	python-pycairo-devel >= 0.5.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -80,7 +79,7 @@ Summary:	Python bindings for GObject library
 Summary(pl):	Wi您ania Pythona do biblioteki GObject
 Group:		Libraries/Python
 %pyrequires_eq	python-modules
-Requires:	glib2 >= 1:2.7.4
+Requires:	glib2 >= 1:2.8.0
 Conflicts:	python-pygtk < 1:1.0
 Obsoletes:	python-pygtk-glarea
 
@@ -96,8 +95,8 @@ Summary(pl):	Wi您ania Pythona do biblioteki GTK+
 Group:		Libraries/Python
 Requires:	%{name}-atk = %{epoch}:%{version}-%{release}
 Requires:	%{name}-pango = %{epoch}:%{version}-%{release}
-Requires:	gtk+2 >= 2:2.7.4
-Requires:	python-pycairo
+Requires:	gtk+2 >= 2:2.8.0
+Requires:	python-pycairo >= 0.5.0
 Conflicts:	python-pygtk < 1:1.0
 Obsoletes:	python-pygtk-glarea
 
@@ -112,7 +111,7 @@ Summary:	Python bindings for ATK library
 Summary(pl):	Wi您ania Pythona do biblioteki ATK
 Group:		Libraries/Python
 Requires:	%{name}-gobject = %{epoch}:%{version}-%{release}
-Requires:	atk >= 1.8.0
+Requires:	atk >= 1:1.8.0
 
 %description atk
 Python bindings for ATK library.
@@ -125,7 +124,7 @@ Summary:	Python bindings for Pango library
 Summary(pl):	Wi您ania Pythona do biblioteki Pango
 Group:		Libraries/Python
 Requires:	%{name}-gobject = %{epoch}:%{version}-%{release}
-Requires:	pango > 1.9.0
+Requires:	pango >= 1:1.10.0
 Requires:	python-pycairo
 
 %description pango
@@ -155,7 +154,6 @@ Wi您ania Pythona do biblioteki Glade.
 mkdir m4
 cp %{SOURCE1} m4/python.m4
 cp %{SOURCE2} m4/jhflags.m4
-cp %{SOURCE3} pangocairo.defs
 
 %build
 %{__libtoolize}
@@ -188,15 +186,12 @@ rm -rf $RPM_BUILD_ROOT
 %files devel
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/*
-%{_includedir}/pygtk-2.0
-
 %dir %{_datadir}/%{module}
 %dir %{_datadir}/%{module}/2.0
 %dir %{_datadir}/%{module}/2.0/codegen
 %{_datadir}/%{module}/2.0/codegen/*.py[co]
-
 %{_datadir}/%{module}/2.0/defs
-
+%{_includedir}/pygtk-2.0
 %{_pkgconfigdir}/*.pc
 
 %files examples
