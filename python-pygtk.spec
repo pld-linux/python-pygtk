@@ -45,6 +45,7 @@ oraz przyk³ady.
 Summary:	Python bindings for GTK+ 2.x libraries - development files
 Summary(pl):	Wi±zania Pythona do bibliotek GTK+ 2.x - czê¶æ rozwojowa
 Group:		Development/Languages/Python
+Requires:	glib2-devel >= 1:2.8.0
 Requires:	%{name}-atk = %{epoch}:%{version}-%{release}
 Requires:	%{name}-glade = %{epoch}:%{version}-%{release}
 Requires:	%{name}-gobject = %{epoch}:%{version}-%{release}
