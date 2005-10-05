@@ -30,7 +30,7 @@ BuildRequires:	libtool
 BuildRequires:	pango-devel >= 1:1.10.0
 BuildRequires:	python-devel >= 1:2.3.2
 %{?with_numpy:BuildRequires:	python-numpy-devel}
-BuildRequires:	python-pycairo-devel >= 0.5.0
+BuildRequires:	python-pycairo-devel >= 1.0.0-1
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
