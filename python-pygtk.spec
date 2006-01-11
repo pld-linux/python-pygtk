@@ -9,13 +9,13 @@
 Summary:	Python bindings for GTK+ 2.x libraries
 Summary(pl):	Wi±zania Pythona do bibliotek GTK+ 2.x
 Name:		python-%{module}
-Version:	2.8.2
-Release:	2
+Version:	2.8.4
+Release:	1
 Epoch:		2
 License:	LGPL
 Group:		Libraries/Python
 Source0:	http://ftp.gnome.org/pub/gnome/sources/pygtk/2.8/%{module}-%{version}.tar.bz2
-# Source0-md5:	455b50a79015e46b8bcb0664f6d1ece8
+# Source0-md5:	bc82fdb458754feef2336d5fe9b31370
 Source1:	%{name}-python.m4
 Source2:	%{name}-jhflags.m4
 Patch0:		%{name}-pyc.patch
@@ -152,9 +152,11 @@ Wi±zania Pythona do biblioteki Glade.
 %setup -q -n %{module}-%{version}
 %patch0 -p1
 
-mkdir m4
-cp %{SOURCE1} m4/python.m4
-cp %{SOURCE2} m4/jhflags.m4
+# included (but propably incidentally) in 2.8.4
+# don't remove it
+#mkdir m4
+#cp %{SOURCE1} m4/python.m4
+#cp %{SOURCE2} m4/jhflags.m4
 
 %build
 %{__libtoolize}
