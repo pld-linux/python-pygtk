@@ -1,0 +1,11 @@
+--- gtk/gtkunixprint.override	2006/06/14 00:06:48	1.3
++++ gtk/gtkunixprint.override	2006/06/15 12:19:06	1.4
+@@ -105,7 +105,7 @@
+     if (pyg_error_check(&error))
+         return NULL;
+ 
+-#if PYCAIRO_VERSION_HEX >= 0x1010700
++#if PYCAIRO_VERSION_HEX >= 0x1010600
+     return PycairoSurface_FromSurface(surface, NULL);
+ #else
+     return PycairoSurface_FromSurface(surface, NULL, NULL);
