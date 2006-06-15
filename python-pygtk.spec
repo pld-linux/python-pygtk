@@ -9,16 +9,17 @@
 Summary:	Python bindings for GTK+ 2.x libraries
 Summary(pl):	Wi±zania Pythona do bibliotek GTK+ 2.x
 Name:		python-%{module}
-Version:	2.9.0
+Version:	2.9.1
 Release:	1
 Epoch:		2
 License:	LGPL
 Group:		Libraries/Python
 Source0:	http://ftp.gnome.org/pub/gnome/sources/pygtk/2.9/%{module}-%{version}.tar.bz2
-# Source0-md5:	d3bae52dd24dacca5fb51a960a186f37
+# Source0-md5:	b020eed71960e612e35821a0f28e5a3b
 Source1:	%{name}-python.m4
 Source2:	%{name}-jhflags.m4
 Patch0:		%{name}-pyc.patch
+Patch1:		%{name}-gtkunixprint.patch
 URL:		http://www.pygtk.org/
 BuildRequires:	atk-devel >= 1:1.11.4
 BuildRequires:	autoconf >= 2.52
@@ -26,7 +27,7 @@ BuildRequires:	automake
 BuildRequires:	gtk+2-devel >= 2:2.9.2
 BuildRequires:	libglade2-devel >= 1:2.5.1
 BuildRequires:	libtool
-BuildRequires:	pango-devel >= 1:1.13.1
+BuildRequires:	pango-devel >= 1:1.13.2
 BuildRequires:	python-devel >= 1:2.3.2
 %{?with_numpy:BuildRequires:	python-numpy-devel}
 BuildRequires:	python-pycairo-devel >= 1.1.6
@@ -136,11 +137,12 @@ Wi±zania Pythona do biblioteki Glade.
 %prep
 %setup -q -n %{module}-%{version}
 %patch0 -p1
+%patch1 -p0
 
 # don't remove it
-#mkdir m4
-#cp %{SOURCE1} m4/python.m4
-#cp %{SOURCE2} m4/jhflags.m4
+mkdir m4
+cp %{SOURCE1} m4/python.m4
+cp %{SOURCE2} m4/jhflags.m4
 
 %build
 %{__libtoolize}
@@ -189,6 +191,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %dir %{py_sitedir}/gtk-2.0/gtk
 %attr(755,root,root) %{py_sitedir}/gtk-2.0/gtk/_gtk*.so
+%attr(755,root,root) %{py_sitedir}/gtk-2.0/gtk/unixprint.so
 %{py_sitedir}/gtk-2.0/gtk/*.py[co]
 
 %files atk
