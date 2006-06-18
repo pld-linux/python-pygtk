@@ -9,22 +9,21 @@
 Summary:	Python bindings for GTK+ 2.x libraries
 Summary(pl):	Wi±zania Pythona do bibliotek GTK+ 2.x
 Name:		python-%{module}
-Version:	2.9.1
+Version:	2.9.2
 Release:	1
 Epoch:		2
 License:	LGPL
 Group:		Libraries/Python
 Source0:	http://ftp.gnome.org/pub/gnome/sources/pygtk/2.9/%{module}-%{version}.tar.bz2
-# Source0-md5:	b020eed71960e612e35821a0f28e5a3b
+# Source0-md5:	2625ddd1aba04869eb2f9e4d4cc5552b
 Source1:	%{name}-python.m4
 Source2:	%{name}-jhflags.m4
 Patch0:		%{name}-pyc.patch
-Patch1:		%{name}-gtkunixprint.patch
 URL:		http://www.pygtk.org/
 BuildRequires:	atk-devel >= 1:1.11.4
 BuildRequires:	autoconf >= 2.52
 BuildRequires:	automake
-BuildRequires:	gtk+2-devel >= 2:2.9.2
+BuildRequires:	gtk+2-devel >= 2:2.9.3
 BuildRequires:	libglade2-devel >= 1:2.5.1
 BuildRequires:	libtool
 BuildRequires:	pango-devel >= 1:1.13.2
@@ -50,7 +49,7 @@ Requires:	%{name}-atk = %{epoch}:%{version}-%{release}
 Requires:	%{name}-glade = %{epoch}:%{version}-%{release}
 Requires:	%{name}-gtk = %{epoch}:%{version}-%{release}
 Requires:	%{name}-pango = %{epoch}:%{version}-%{release}
-Requires:	gtk+2-devel >= 2:2.9.2
+Requires:	gtk+2-devel >= 2:2.9.3
 Requires:	python-devel >= 1:2.3.2
 Requires:	python-pygobject-devel >= 2.10.1
 Obsoletes:	python-pygtk < 1:1.0
@@ -137,7 +136,6 @@ Wi±zania Pythona do biblioteki Glade.
 %prep
 %setup -q -n %{module}-%{version}
 %patch0 -p1
-%patch1 -p0
 
 # don't remove it
 mkdir m4
