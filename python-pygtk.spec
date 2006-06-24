@@ -10,7 +10,7 @@ Summary:	Python bindings for GTK+ 2.x libraries
 Summary(pl):	Wi±zania Pythona do bibliotek GTK+ 2.x
 Name:		python-%{module}
 Version:	2.9.2
-Release:	1
+Release:	2
 Epoch:		2
 License:	LGPL
 Group:		Libraries/Python
@@ -19,11 +19,12 @@ Source0:	http://ftp.gnome.org/pub/gnome/sources/pygtk/2.9/%{module}-%{version}.t
 Source1:	%{name}-python.m4
 Source2:	%{name}-jhflags.m4
 Patch0:		%{name}-pyc.patch
+Patch1:		%{name}-gtk_print_API_update.patch
 URL:		http://www.pygtk.org/
 BuildRequires:	atk-devel >= 1:1.11.4
 BuildRequires:	autoconf >= 2.52
 BuildRequires:	automake
-BuildRequires:	gtk+2-devel >= 2:2.9.3
+BuildRequires:	gtk+2-devel >= 2:2.9.4
 BuildRequires:	libglade2-devel >= 1:2.5.1
 BuildRequires:	libtool
 BuildRequires:	pango-devel >= 1:1.13.2
@@ -136,6 +137,7 @@ Wi±zania Pythona do biblioteki Glade.
 %prep
 %setup -q -n %{module}-%{version}
 %patch0 -p1
+%patch1 -p1
 
 # don't remove it
 mkdir m4
