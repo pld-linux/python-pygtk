@@ -10,7 +10,7 @@ Summary:	Python bindings for GTK+ 2.x libraries
 Summary(pl):	Wi您ania Pythona do bibliotek GTK+ 2.x
 Name:		python-%{module}
 Version:	2.9.2
-Release:	2
+Release:	3
 Epoch:		2
 License:	LGPL
 Group:		Libraries/Python
@@ -24,13 +24,13 @@ URL:		http://www.pygtk.org/
 BuildRequires:	atk-devel >= 1:1.11.4
 BuildRequires:	autoconf >= 2.52
 BuildRequires:	automake
-BuildRequires:	gtk+2-devel >= 2:2.9.4
+BuildRequires:	gtk+2-devel >= 2:2.10.0
 BuildRequires:	libglade2-devel >= 1:2.5.1
 BuildRequires:	libtool
-BuildRequires:	pango-devel >= 1:1.13.2
+BuildRequires:	pango-devel >= 1:1.13.3
 BuildRequires:	python-devel >= 1:2.3.2
 %{?with_numpy:BuildRequires:	python-numpy-devel}
-BuildRequires:	python-pycairo-devel >= 1.1.6
+BuildRequires:	python-pycairo-devel >= 1.2.0
 BuildRequires:	python-pygobject-devel >= 2.10.1
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -50,7 +50,7 @@ Requires:	%{name}-atk = %{epoch}:%{version}-%{release}
 Requires:	%{name}-glade = %{epoch}:%{version}-%{release}
 Requires:	%{name}-gtk = %{epoch}:%{version}-%{release}
 Requires:	%{name}-pango = %{epoch}:%{version}-%{release}
-Requires:	gtk+2-devel >= 2:2.9.3
+Requires:	gtk+2-devel >= 2:2.10.0
 Requires:	python-devel >= 1:2.3.2
 Requires:	python-pygobject-devel >= 2.10.1
 Obsoletes:	python-pygtk < 1:1.0
@@ -82,8 +82,8 @@ Summary(pl):	Wi您ania Pythona do biblioteki GTK+
 Group:		Libraries/Python
 Requires:	%{name}-atk = %{epoch}:%{version}-%{release}
 Requires:	%{name}-pango = %{epoch}:%{version}-%{release}
-Requires:	gtk+2 >= 2:2.9.2
-Requires:	python-pycairo >= 1.1.6
+Requires:	gtk+2 >= 2:2.10.0
+Requires:	python-pycairo >= 1.2.0
 Conflicts:	python-pygtk < 1:1.0
 Obsoletes:	python-pygtk-glarea
 
@@ -110,8 +110,8 @@ Wi您ania Pythona do biblioteki ATK.
 Summary:	Python bindings for Pango library
 Summary(pl):	Wi您ania Pythona do biblioteki Pango
 Group:		Libraries/Python
-Requires:	pango >= 1:1.13.1
-Requires:	python-pycairo >= 1.1.6
+Requires:	pango >= 1:1.13.3
+Requires:	python-pycairo >= 1.2.0
 Requires:	python-pygobject >= 2.10.1
 
 %description pango
