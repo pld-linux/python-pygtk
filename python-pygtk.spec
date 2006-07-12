@@ -9,23 +9,22 @@
 Summary:	Python bindings for GTK+ 2.x libraries
 Summary(pl):	Wi您ania Pythona do bibliotek GTK+ 2.x
 Name:		python-%{module}
-Version:	2.9.2
-Release:	3
+Version:	2.9.3
+Release:	1
 Epoch:		2
 License:	LGPL
 Group:		Libraries/Python
 Source0:	http://ftp.gnome.org/pub/gnome/sources/pygtk/2.9/%{module}-%{version}.tar.bz2
-# Source0-md5:	2625ddd1aba04869eb2f9e4d4cc5552b
+# Source0-md5:	7dce749a2bac4b9c8ba4ca7f44c1162f
 Source1:	%{name}-python.m4
 Source2:	%{name}-jhflags.m4
 Patch0:		%{name}-pyc.patch
-Patch1:		%{name}-gtk_print_API_update.patch
 URL:		http://www.pygtk.org/
-BuildRequires:	atk-devel >= 1:1.11.4
+BuildRequires:	atk-devel >= 1:1.12.1
 BuildRequires:	autoconf >= 2.52
 BuildRequires:	automake
 BuildRequires:	gtk+2-devel >= 2:2.10.0
-BuildRequires:	libglade2-devel >= 1:2.5.1
+BuildRequires:	libglade2-devel >= 1:2.6.0
 BuildRequires:	libtool
 BuildRequires:	pango-devel >= 1:1.13.3
 BuildRequires:	python-devel >= 1:2.3.2
@@ -98,7 +97,7 @@ Summary:	Python bindings for ATK library
 Summary(pl):	Wi您ania Pythona do biblioteki ATK
 Group:		Libraries/Python
 Requires:	python-pygobject >= 2.10.1
-Requires:	atk >= 1:1.11.4
+Requires:	atk >= 1:1.12.1
 
 %description atk
 Python bindings for ATK library.
@@ -125,7 +124,7 @@ Summary:	Python bindings for Glade library
 Summary(pl):	Wi您ania Pythona do biblioteki Glade
 Group:		Libraries/Python
 Requires:	%{name}-gtk = %{epoch}:%{version}-%{release}
-Requires:	libglade2 >= 1:2.5.1
+Requires:	libglade2 >= 1:2.6.0
 Obsoletes:	python-pygtk-libglade < 1:1.0
 
 %description glade
@@ -137,7 +136,6 @@ Wi您ania Pythona do biblioteki Glade.
 %prep
 %setup -q -n %{module}-%{version}
 %patch0 -p1
-%patch1 -p1
 
 # don't remove it
 mkdir m4
