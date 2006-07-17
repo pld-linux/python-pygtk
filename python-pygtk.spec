@@ -28,7 +28,7 @@ BuildRequires:	libglade2-devel >= 1:2.6.0
 BuildRequires:	libtool
 BuildRequires:	pango-devel >= 1:1.13.3
 BuildRequires:	python-devel >= 1:2.3.2
-%{?with_numpy:BuildRequires:	python-numpy-devel}
+%{?with_numpy:BuildRequires:	python-Numeric-devel}
 BuildRequires:	python-pycairo-devel >= 1.2.0
 BuildRequires:	python-pygobject-devel >= 2.10.1
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -150,7 +150,7 @@ cp %{SOURCE2} m4/jhflags.m4
 %{__automake}
 %configure \
 	--enable-thread \
-	%{!?with_numpy:--disable-numpy}
+	%{!?with_numpy:--disable-numeric}
 %{__make}
 
 %install
