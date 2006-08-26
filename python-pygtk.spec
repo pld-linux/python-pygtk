@@ -22,7 +22,7 @@ Patch0:		%{name}-pyc.patch
 URL:		http://www.pygtk.org/
 BuildRequires:	atk-devel >= 1:1.12.1
 BuildRequires:	autoconf >= 2.52
-BuildRequires:	automake
+BuildRequires:	automake >= 1:1.7
 BuildRequires:	gtk+2-devel >= 2:2.10.1
 BuildRequires:	libglade2-devel >= 1:2.6.0
 BuildRequires:	libtool
