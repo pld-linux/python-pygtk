@@ -10,7 +10,7 @@ Summary:	Python bindings for GTK+ 2.x libraries
 Summary(pl):	Wi±zania Pythona do bibliotek GTK+ 2.x
 Name:		python-%{module}
 Version:	2.10.1
-Release:	3
+Release:	4
 Epoch:		2
 License:	LGPL
 Group:		Libraries/Python
@@ -31,6 +31,8 @@ BuildRequires:	python-devel >= 1:2.3.2
 %{?with_numpy:BuildRequires:	python-Numeric-devel}
 BuildRequires:	python-pycairo-devel >= 1.2.2
 BuildRequires:	python-pygobject-devel >= 2.12.1-4
+# needs /usr/share/doc/gtk-doc/html/pygobject/style.css
+BuildRequires:	python-pygobject-apidocs
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
