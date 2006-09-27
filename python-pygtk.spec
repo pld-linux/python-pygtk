@@ -10,7 +10,7 @@ Summary:	Python bindings for GTK+ 2.x libraries
 Summary(pl):	Wi±zania Pythona do bibliotek GTK+ 2.x
 Name:		python-%{module}
 Version:	2.10.1
-Release:	4
+Release:	5
 Epoch:		2
 License:	LGPL
 Group:		Libraries/Python
