@@ -7,7 +7,7 @@
 %define		module	pygtk
 
 Summary:	Python bindings for GTK+ 2.x libraries
-Summary(pl):	Wi±zania Pythona do bibliotek GTK+ 2.x
+Summary(pl.UTF-8):   WiÄ…zania Pythona do bibliotek GTK+ 2.x
 Name:		python-%{module}
 Version:	2.10.4
 Release:	1
@@ -40,13 +40,13 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Python bindings for GTK+ 2.x libraries. This package contains
 documentation and examples.
 
-%description -l pl
-Wi±zania Pythona do bibliotek GTK+ 2.x. Pakiet zawiera dokumentacjê
-oraz przyk³ady.
+%description -l pl.UTF-8
+WiÄ…zania Pythona do bibliotek GTK+ 2.x. Pakiet zawiera dokumentacjÄ™
+oraz przykÅ‚ady.
 
 %package devel
 Summary:	Python bindings for GTK+ 2.x libraries - development files
-Summary(pl):	Wi±zania Pythona do bibliotek GTK+ 2.x - czê¶æ rozwojowa
+Summary(pl.UTF-8):   WiÄ…zania Pythona do bibliotek GTK+ 2.x - czÄ™Å›Ä‡ rozwojowa
 Group:		Development/Languages/Python
 Requires:	%{name}-atk = %{epoch}:%{version}-%{release}
 Requires:	%{name}-glade = %{epoch}:%{version}-%{release}
@@ -61,13 +61,13 @@ Obsoletes:	python-pygtk < 1:1.0
 This package contains files required to build wrappers for GTK+ addon
 libraries so that they interoperate with Python bindings.
 
-%description devel -l pl
+%description devel -l pl.UTF-8
 Pakiet zawiera pliki wymagane do zbudowania funkcji do bibliotek GTK+,
-tak by mog³y te biblioteki kooperowaæ z wi±zaniami Pythona.
+tak by mogÅ‚y te biblioteki kooperowaÄ‡ z wiÄ…zaniami Pythona.
 
 %package examples
 Summary:	Example programs for pygtk
-Summary(pl):	Programy przyk³adowe do pygtk
+Summary(pl.UTF-8):   Programy przykÅ‚adowe do pygtk
 Group:		Development/Languages/Python
 Requires:	%{name}-devel = %{epoch}:%{version}-%{release}
 Obsoletes:	python-pygtk
@@ -75,12 +75,12 @@ Obsoletes:	python-pygtk
 %description examples
 This package contains example programs for pygtk.
 
-%description examples -l pl
-Ten pakiet zawiera przyk³adowe programy dla pygtk.
+%description examples -l pl.UTF-8
+Ten pakiet zawiera przykÅ‚adowe programy dla pygtk.
 
 %package gtk
 Summary:	Python bindings for GTK+ library
-Summary(pl):	Wi±zania Pythona do biblioteki GTK+
+Summary(pl.UTF-8):   WiÄ…zania Pythona do biblioteki GTK+
 Group:		Libraries/Python
 Requires:	%{name}-atk = %{epoch}:%{version}-%{release}
 Requires:	%{name}-pango = %{epoch}:%{version}-%{release}
@@ -92,12 +92,12 @@ Conflicts:	python-pygtk < 1:1.0
 %description gtk
 Python bindings for GTK+ library.
 
-%description gtk -l pl
-Wi±zania Pythona do biblioteki GTK+.
+%description gtk -l pl.UTF-8
+WiÄ…zania Pythona do biblioteki GTK+.
 
 %package atk
 Summary:	Python bindings for ATK library
-Summary(pl):	Wi±zania Pythona do biblioteki ATK
+Summary(pl.UTF-8):   WiÄ…zania Pythona do biblioteki ATK
 Group:		Libraries/Python
 Requires:	atk >= 1:1.12.3
 Requires:	python-pygobject >= 2.12.3
@@ -105,12 +105,12 @@ Requires:	python-pygobject >= 2.12.3
 %description atk
 Python bindings for ATK library.
 
-%description atk -l pl
-Wi±zania Pythona do biblioteki ATK.
+%description atk -l pl.UTF-8
+WiÄ…zania Pythona do biblioteki ATK.
 
 %package pango
 Summary:	Python bindings for Pango library
-Summary(pl):	Wi±zania Pythona do biblioteki Pango
+Summary(pl.UTF-8):   WiÄ…zania Pythona do biblioteki Pango
 Group:		Libraries/Python
 Requires:	pango >= 1:1.14.10
 Requires:	python-pycairo >= 1.2.2
@@ -119,12 +119,12 @@ Requires:	python-pygobject >= 2.12.3
 %description pango
 Python bindings for Pango library.
 
-%description pango -l pl
-Wi±zania Pythona do biblioteki Pango.
+%description pango -l pl.UTF-8
+WiÄ…zania Pythona do biblioteki Pango.
 
 %package glade
 Summary:	Python bindings for Glade library
-Summary(pl):	Wi±zania Pythona do biblioteki Glade
+Summary(pl.UTF-8):   WiÄ…zania Pythona do biblioteki Glade
 Group:		Libraries/Python
 Requires:	%{name}-gtk = %{epoch}:%{version}-%{release}
 Requires:	libglade2 >= 1:2.6.0
@@ -133,19 +133,19 @@ Obsoletes:	python-pygtk-libglade < 1:1.0
 %description glade
 Python bindings for Glade library.
 
-%description glade -l pl
-Wi±zania Pythona do biblioteki Glade.
+%description glade -l pl.UTF-8
+WiÄ…zania Pythona do biblioteki Glade.
 
 %package apidocs
 Summary:	pygtk API documentation
-Summary(pl):	Dokumentacja API pygtk
+Summary(pl.UTF-8):   Dokumentacja API pygtk
 Group:		Documentation
 Requires:	gtk-doc-common
 
 %description apidocs
 pygtk API documentation.
 
-%description apidocs -l pl
+%description apidocs -l pl.UTF-8
 Dokumentacja API pygtk.
 
 %prep
