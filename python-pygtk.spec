@@ -7,7 +7,7 @@
 %define		module	pygtk
 
 Summary:	Python bindings for GTK+ 2.x libraries
-Summary(pl.UTF-8):   Wiązania Pythona do bibliotek GTK+ 2.x
+Summary(pl.UTF-8):	Wiązania Pythona do bibliotek GTK+ 2.x
 Name:		python-%{module}
 Version:	2.10.4
 Release:	1
@@ -46,7 +46,7 @@ oraz przykłady.
 
 %package devel
 Summary:	Python bindings for GTK+ 2.x libraries - development files
-Summary(pl.UTF-8):   Wiązania Pythona do bibliotek GTK+ 2.x - część rozwojowa
+Summary(pl.UTF-8):	Wiązania Pythona do bibliotek GTK+ 2.x - część rozwojowa
 Group:		Development/Languages/Python
 Requires:	%{name}-atk = %{epoch}:%{version}-%{release}
 Requires:	%{name}-glade = %{epoch}:%{version}-%{release}
@@ -67,7 +67,7 @@ tak by mogły te biblioteki kooperować z wiązaniami Pythona.
 
 %package examples
 Summary:	Example programs for pygtk
-Summary(pl.UTF-8):   Programy przykładowe do pygtk
+Summary(pl.UTF-8):	Programy przykładowe do pygtk
 Group:		Development/Languages/Python
 Requires:	%{name}-devel = %{epoch}:%{version}-%{release}
 Obsoletes:	python-pygtk
@@ -80,7 +80,7 @@ Ten pakiet zawiera przykładowe programy dla pygtk.
 
 %package gtk
 Summary:	Python bindings for GTK+ library
-Summary(pl.UTF-8):   Wiązania Pythona do biblioteki GTK+
+Summary(pl.UTF-8):	Wiązania Pythona do biblioteki GTK+
 Group:		Libraries/Python
 Requires:	%{name}-atk = %{epoch}:%{version}-%{release}
 Requires:	%{name}-pango = %{epoch}:%{version}-%{release}
@@ -97,7 +97,7 @@ Wiązania Pythona do biblioteki GTK+.
 
 %package atk
 Summary:	Python bindings for ATK library
-Summary(pl.UTF-8):   Wiązania Pythona do biblioteki ATK
+Summary(pl.UTF-8):	Wiązania Pythona do biblioteki ATK
 Group:		Libraries/Python
 Requires:	atk >= 1:1.12.3
 Requires:	python-pygobject >= 2.12.3
@@ -110,7 +110,7 @@ Wiązania Pythona do biblioteki ATK.
 
 %package pango
 Summary:	Python bindings for Pango library
-Summary(pl.UTF-8):   Wiązania Pythona do biblioteki Pango
+Summary(pl.UTF-8):	Wiązania Pythona do biblioteki Pango
 Group:		Libraries/Python
 Requires:	pango >= 1:1.14.10
 Requires:	python-pycairo >= 1.2.2
@@ -124,7 +124,7 @@ Wiązania Pythona do biblioteki Pango.
 
 %package glade
 Summary:	Python bindings for Glade library
-Summary(pl.UTF-8):   Wiązania Pythona do biblioteki Glade
+Summary(pl.UTF-8):	Wiązania Pythona do biblioteki Glade
 Group:		Libraries/Python
 Requires:	%{name}-gtk = %{epoch}:%{version}-%{release}
 Requires:	libglade2 >= 1:2.6.0
@@ -138,7 +138,7 @@ Wiązania Pythona do biblioteki Glade.
 
 %package apidocs
 Summary:	pygtk API documentation
-Summary(pl.UTF-8):   Dokumentacja API pygtk
+Summary(pl.UTF-8):	Dokumentacja API pygtk
 Group:		Documentation
 Requires:	gtk-doc-common
 
