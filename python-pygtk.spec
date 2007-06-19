@@ -24,7 +24,7 @@ BuildRequires:	atk-devel >= 1:1.12.3
 BuildRequires:	autoconf >= 2.52
 BuildRequires:	automake >= 1:1.7
 BuildRequires:	gtk+2-devel >= 2:2.10.9
-BuildRequires:	libglade2-devel >= 1:2.6.0
+BuildRequires:	libglade2-devel >= 1:2.6.0-4
 BuildRequires:	libtool
 BuildRequires:	pango-devel >= 1:1.14.10
 %{?with_numpy:BuildRequires:	python-Numeric-devel}
