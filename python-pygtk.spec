@@ -9,21 +9,21 @@
 Summary:	Python bindings for GTK+ 2.x libraries
 Summary(pl.UTF-8):	Wiązania Pythona do bibliotek GTK+ 2.x
 Name:		python-%{module}
-Version:	2.10.4
+Version:	2.10.6
 Release:	1
 Epoch:		2
 License:	LGPL
 Group:		Libraries/Python
 Source0:	http://ftp.gnome.org/pub/gnome/sources/pygtk/2.10/%{module}-%{version}.tar.bz2
-# Source0-md5:	89afe242275a3fce57b4ffb5fadc5888
+# Source0-md5:	f051e25adcbdc1ddcf736fadad3d66f2
 Source1:	%{name}-python.m4
 Source2:	%{name}-jhflags.m4
 Patch0:		%{name}-pyc.patch
 URL:		http://www.pygtk.org/
-BuildRequires:	atk-devel >= 1:1.12.3
+BuildRequires:	atk-devel >= 1:1.18.0
 BuildRequires:	autoconf >= 2.52
 BuildRequires:	automake >= 1:1.7
-BuildRequires:	gtk+2-devel >= 2:2.10.9
+BuildRequires:	gtk+2-devel >= 2:2.10.13
 BuildRequires:	libglade2-devel >= 1:2.6.0-4
 BuildRequires:	libtool
 BuildRequires:	pango-devel >= 1:1.14.10
@@ -52,7 +52,7 @@ Requires:	%{name}-atk = %{epoch}:%{version}-%{release}
 Requires:	%{name}-glade = %{epoch}:%{version}-%{release}
 Requires:	%{name}-gtk = %{epoch}:%{version}-%{release}
 Requires:	%{name}-pango = %{epoch}:%{version}-%{release}
-Requires:	gtk+2-devel >= 2:2.10.9
+Requires:	gtk+2-devel >= 2:2.10.13
 Requires:	python-devel >= 1:2.3.2
 Requires:	python-pygobject-devel >= 2.12.3
 Obsoletes:	python-pygtk < 1:1.0
@@ -84,7 +84,7 @@ Summary(pl.UTF-8):	Wiązania Pythona do biblioteki GTK+
 Group:		Libraries/Python
 Requires:	%{name}-atk = %{epoch}:%{version}-%{release}
 Requires:	%{name}-pango = %{epoch}:%{version}-%{release}
-Requires:	gtk+2 >= 2:2.10.9
+Requires:	gtk+2 >= 2:2.10.13
 Requires:	python-pycairo >= 1.2.3
 Obsoletes:	python-pygtk-glarea
 Conflicts:	python-pygtk < 1:1.0
@@ -99,7 +99,7 @@ Wiązania Pythona do biblioteki GTK+.
 Summary:	Python bindings for ATK library
 Summary(pl.UTF-8):	Wiązania Pythona do biblioteki ATK
 Group:		Libraries/Python
-Requires:	atk >= 1:1.12.3
+Requires:	atk >= 1:1.18.0
 Requires:	python-pygobject >= 2.12.3
 
 %description atk
