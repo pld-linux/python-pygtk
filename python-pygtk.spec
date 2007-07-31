@@ -12,7 +12,7 @@ Name:		python-%{module}
 Version:	2.10.6
 Release:	1
 Epoch:		2
-License:	LGPL
+License:	LGPL v2.1+
 Group:		Libraries/Python
 Source0:	http://ftp.gnome.org/pub/gnome/sources/pygtk/2.10/%{module}-%{version}.tar.bz2
 # Source0-md5:	f051e25adcbdc1ddcf736fadad3d66f2
