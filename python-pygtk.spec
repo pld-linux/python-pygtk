@@ -10,7 +10,7 @@ Summary:	Python bindings for GTK+ 2.x libraries
 Summary(pl.UTF-8):	Wiązania Pythona do bibliotek GTK+ 2.x
 Name:		python-%{module}
 Version:	2.12.0
-Release:	1
+Release:	2
 Epoch:		2
 License:	LGPL v2.1+
 Group:		Libraries/Python
@@ -187,13 +187,16 @@ rm -rf $RPM_BUILD_ROOT%{_libdir}/pygtk/2.0/{demos,pygtk-demo*}
 %clean
 rm -rf $RPM_BUILD_ROOT
 
+%files
+%defattr(644,root,root,755)
+%dir %{_datadir}/%{module}
+%dir %{_datadir}/%{module}/2.0
+%dir %{_datadir}/%{module}/2.0/codegen
+
 %files devel
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/pygtk-codegen-2.0
 %attr(755,root,root) %{_bindir}/pygtk-demo
-%dir %{_datadir}/%{module}
-%dir %{_datadir}/%{module}/2.0
-%dir %{_datadir}/%{module}/2.0/codegen
 %{_datadir}/%{module}/2.0/codegen/*.py[co]
 %{_datadir}/%{module}/2.0/defs
 %{_includedir}/pygtk-2.0
