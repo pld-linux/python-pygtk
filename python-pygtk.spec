@@ -10,7 +10,7 @@ Summary:	Python bindings for GTK+ 2.x libraries
 Summary(pl.UTF-8):	Wiązania Pythona do bibliotek GTK+ 2.x
 Name:		python-%{module}
 Version:	2.12.0
-Release:	3
+Release:	4
 Epoch:		2
 License:	LGPL v2.1+
 Group:		Libraries/Python
@@ -55,7 +55,6 @@ Requires:	%{name}-pango = %{epoch}:%{version}-%{release}
 Requires:	gtk+2-devel >= 2:2.12.0
 Requires:	python-devel >= 1:2.3.2
 Requires:	python-pygobject-devel >= 2.14.0
-Obsoletes:	python-pygtk < 1:1.0
 
 %description devel
 This package contains files required to build wrappers for GTK+ addon
@@ -70,7 +69,6 @@ Summary:	Example programs for pygtk
 Summary(pl.UTF-8):	Programy przykładowe do pygtk
 Group:		Development/Languages/Python
 Requires:	%{name}-devel = %{epoch}:%{version}-%{release}
-Obsoletes:	python-pygtk
 
 %description examples
 This package contains example programs for pygtk.
