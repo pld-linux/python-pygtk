@@ -9,28 +9,28 @@
 Summary:	Python bindings for GTK+ 2.x libraries
 Summary(pl.UTF-8):	Wiązania Pythona do bibliotek GTK+ 2.x
 Name:		python-%{module}
-Version:	2.12.0
-Release:	5
+Version:	2.12.1
+Release:	1
 Epoch:		2
 License:	LGPL v2.1+
 Group:		Libraries/Python
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/pygtk/2.12/%{module}-%{version}.tar.bz2
-# Source0-md5:	3c1a42b774600c353342cfa3782a7d77
+# Source0-md5:	a816346d750d61e3fa67a200e4292694
 Source1:	%{name}-python.m4
 Source2:	%{name}-jhflags.m4
 Patch0:		%{name}-pyc.patch
 URL:		http://www.pygtk.org/
-BuildRequires:	atk-devel >= 1:1.19.6
+BuildRequires:	atk-devel >= 1:1.20.0
 BuildRequires:	autoconf >= 2.52
 BuildRequires:	automake >= 1:1.7
 BuildRequires:	gtk+2-devel >= 2:2.12.0
 BuildRequires:	libglade2-devel >= 1:2.6.0-4
 BuildRequires:	libtool
-BuildRequires:	pango-devel >= 1:1.18.1
+BuildRequires:	pkgconfig
 %{?with_numpy:BuildRequires:	python-Numeric-devel}
 BuildRequires:	python-devel >= 1:2.3.2
 BuildRequires:	python-pycairo-devel >= 1.2.6
-BuildRequires:	python-pygobject-devel >= 2.14.0
+BuildRequires:	python-pygobject-devel >= 2.14.1
 # needs /usr/share/doc/gtk-doc/html/pygobject/style.css
 BuildRequires:	python-pygobject-apidocs
 BuildRequires:	rpm-pythonprov
@@ -54,7 +54,7 @@ Requires:	%{name}-gtk = %{epoch}:%{version}-%{release}
 Requires:	%{name}-pango = %{epoch}:%{version}-%{release}
 Requires:	gtk+2-devel >= 2:2.12.0
 Requires:	python-devel >= 1:2.3.2
-Requires:	python-pygobject-devel >= 2.14.0
+Requires:	python-pygobject-devel >= 2.14.1
 
 %description devel
 This package contains files required to build wrappers for GTK+ addon
@@ -97,8 +97,8 @@ Wiązania Pythona do biblioteki GTK+.
 Summary:	Python bindings for ATK library
 Summary(pl.UTF-8):	Wiązania Pythona do biblioteki ATK
 Group:		Libraries/Python
-Requires:	atk >= 1:1.19.6
-Requires:	python-pygobject >= 2.14.0
+Requires:	atk >= 1:1.20.0
+Requires:	python-pygobject >= 2.14.1
 
 %description atk
 Python bindings for ATK library.
@@ -112,7 +112,7 @@ Summary(pl.UTF-8):	Wiązania Pythona do biblioteki Pango
 Group:		Libraries/Python
 Requires:	pango >= 1:1.18.1
 Requires:	python-pycairo >= 1.2.2
-Requires:	python-pygobject >= 2.14.0
+Requires:	python-pygobject >= 2.14.1
 
 %description pango
 Python bindings for Pango library.
@@ -151,9 +151,9 @@ Dokumentacja API pygtk.
 %patch0 -p1
 
 # don't remove it
-mkdir m4
-cp %{SOURCE1} m4/python.m4
-cp %{SOURCE2} m4/jhflags.m4
+#mkdir m4
+#cp %{SOURCE1} m4/python.m4
+#cp %{SOURCE2} m4/jhflags.m4
 
 %build
 %{__libtoolize}
