@@ -10,7 +10,7 @@ Summary:	Python bindings for GTK+ 2.x libraries
 Summary(pl.UTF-8):	Wiązania Pythona do bibliotek GTK+ 2.x
 Name:		python-%{module}
 Version:	2.12.1
-Release:	1
+Release:	2
 Epoch:		2
 License:	LGPL v2.1+
 Group:		Libraries/Python
@@ -55,6 +55,7 @@ Requires:	%{name}-pango = %{epoch}:%{version}-%{release}
 Requires:	gtk+2-devel >= 2:2.12.0
 Requires:	python-devel >= 1:2.3.2
 Requires:	python-pygobject-devel >= 2.14.1
+Obsoletes:	python-pygtk < 2:2.12.1-2
 
 %description devel
 This package contains files required to build wrappers for GTK+ addon
@@ -185,19 +186,17 @@ rm -rf $RPM_BUILD_ROOT%{_libdir}/pygtk/2.0/{demos,pygtk-demo*}
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%files
-%defattr(644,root,root,755)
-%dir %{_datadir}/%{module}
-%dir %{_datadir}/%{module}/2.0
-%dir %{_datadir}/%{module}/2.0/codegen
-%dir %{_datadir}/%{module}/2.0/defs
-
 %files devel
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/pygtk-codegen-2.0
 %attr(755,root,root) %{_bindir}/pygtk-demo
-%{_datadir}/%{module}/2.0/codegen/*.py[co]
-%{_datadir}/%{module}/2.0/defs/*
+%dir %{_datadir}/pygtk
+%dir %{_datadir}/pygtk/2.0
+%dir %{_datadir}/pygtk/2.0/codegen
+%{_datadir}/pygtk/2.0/codegen/*.py[co]
+%dir %{_datadir}/pygtk/2.0/defs
+%{_datadir}/pygtk/2.0/defs/*.defs
+%{_datadir}/pygtk/2.0/defs/*.override
 %{_includedir}/pygtk-2.0
 %{_pkgconfigdir}/pygtk-2.0.pc
 
