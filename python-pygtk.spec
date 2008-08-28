@@ -9,28 +9,27 @@
 Summary:	Python bindings for GTK+ 2.x libraries
 Summary(pl.UTF-8):	Wiązania Pythona do bibliotek GTK+ 2.x
 Name:		python-%{module}
-Version:	2.12.1
-Release:	2
+Version:	2.13.0
+Release:	1
 Epoch:		2
 License:	LGPL v2.1+
 Group:		Libraries/Python
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/pygtk/2.12/%{module}-%{version}.tar.bz2
-# Source0-md5:	a816346d750d61e3fa67a200e4292694
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/pygtk/2.13/%{module}-%{version}.tar.bz2
+# Source0-md5:	e1513921bfd3790b456899c483fceaea
 Source1:	%{name}-python.m4
 Source2:	%{name}-jhflags.m4
-Patch0:		%{name}-pyc.patch
 URL:		http://www.pygtk.org/
 BuildRequires:	atk-devel >= 1:1.20.0
 BuildRequires:	autoconf >= 2.52
 BuildRequires:	automake >= 1:1.7
-BuildRequires:	gtk+2-devel >= 2:2.12.0
+BuildRequires:	gtk+2-devel >= 2:2.13.0
 BuildRequires:	libglade2-devel >= 1:2.6.0-4
 BuildRequires:	libtool
 BuildRequires:	pkgconfig
 %{?with_numpy:BuildRequires:	python-Numeric-devel}
 BuildRequires:	python-devel >= 1:2.3.2
 BuildRequires:	python-pycairo-devel >= 1.2.6
-BuildRequires:	python-pygobject-devel >= 2.14.1
+BuildRequires:	python-pygobject-devel >= 2.15.2
 # needs /usr/share/doc/gtk-doc/html/pygobject/style.css
 BuildRequires:	python-pygobject-apidocs
 BuildRequires:	rpm-pythonprov
@@ -149,7 +148,6 @@ Dokumentacja API pygtk.
 
 %prep
 %setup -q -n %{module}-%{version}
-%patch0 -p1
 
 # don't remove it
 #mkdir m4
@@ -192,8 +190,6 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/pygtk-demo
 %dir %{_datadir}/pygtk
 %dir %{_datadir}/pygtk/2.0
-%dir %{_datadir}/pygtk/2.0/codegen
-%{_datadir}/pygtk/2.0/codegen/*.py[co]
 %dir %{_datadir}/pygtk/2.0/defs
 %{_datadir}/pygtk/2.0/defs/*.defs
 %{_datadir}/pygtk/2.0/defs/*.override
