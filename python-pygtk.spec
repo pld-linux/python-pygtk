@@ -9,28 +9,27 @@
 Summary:	Python bindings for GTK+ 2.x libraries
 Summary(pl.UTF-8):	Wiązania Pythona do bibliotek GTK+ 2.x
 Name:		python-%{module}
-Version:	2.12.1
-Release:	4
+Version:	2.14.0
+Release:	1
 Epoch:		2
 License:	LGPL v2.1+
 Group:		Libraries/Python
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/pygtk/2.12/%{module}-%{version}.tar.bz2
-# Source0-md5:	a816346d750d61e3fa67a200e4292694
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/pygtk/2.14/%{module}-%{version}.tar.bz2
+# Source0-md5:	b5fec3a9493a394d0ba2b8d2b337c4c5
 Source1:	%{name}-python.m4
 Source2:	%{name}-jhflags.m4
 Patch0:		%{name}-pyc.patch
 URL:		http://www.pygtk.org/
-BuildRequires:	atk-devel >= 1:1.20.0
 BuildRequires:	autoconf >= 2.52
 BuildRequires:	automake >= 1:1.7
-BuildRequires:	gtk+2-devel >= 2:2.12.0
-BuildRequires:	libglade2-devel >= 1:2.6.0-4
+BuildRequires:	gtk+2-devel >= 2:2.14.0
+BuildRequires:	libglade2-devel >= 1:2.6.2
 BuildRequires:	libtool
 BuildRequires:	pkgconfig
 %{?with_numpy:BuildRequires:	python-Numeric-devel}
 BuildRequires:	python-devel >= 1:2.3.2
 BuildRequires:	python-pycairo-devel >= 1.2.6
-BuildRequires:	python-pygobject-devel >= 2.14.1
+BuildRequires:	python-pygobject-devel >= 2.16.0
 # needs /usr/share/doc/gtk-doc/html/pygobject/style.css
 BuildRequires:	python-pygobject-apidocs
 BuildRequires:	rpm-pythonprov
@@ -52,9 +51,9 @@ Requires:	%{name}-atk = %{epoch}:%{version}-%{release}
 Requires:	%{name}-glade = %{epoch}:%{version}-%{release}
 Requires:	%{name}-gtk = %{epoch}:%{version}-%{release}
 Requires:	%{name}-pango = %{epoch}:%{version}-%{release}
-Requires:	gtk+2-devel >= 2:2.12.0
+Requires:	gtk+2-devel >= 2:2.14.0
 Requires:	python-devel >= 1:2.3.2
-Requires:	python-pygobject-devel >= 2.14.1
+Requires:	python-pygobject-devel >= 2.16.0
 Obsoletes:	python-pygtk < 2:2.12.1-2
 
 %description devel
@@ -83,7 +82,7 @@ Summary(pl.UTF-8):	Wiązania Pythona do biblioteki GTK+
 Group:		Libraries/Python
 Requires:	%{name}-atk = %{epoch}:%{version}-%{release}
 Requires:	%{name}-pango = %{epoch}:%{version}-%{release}
-Requires:	gtk+2 >= 2:2.12.0
+Requires:	gtk+2 >= 2:2.14.0
 Requires:	python-pycairo >= 1.2.3
 Obsoletes:	python-pygtk-glarea
 Conflicts:	python-pygtk < 1:1.0
@@ -98,8 +97,8 @@ Wiązania Pythona do biblioteki GTK+.
 Summary:	Python bindings for ATK library
 Summary(pl.UTF-8):	Wiązania Pythona do biblioteki ATK
 Group:		Libraries/Python
-Requires:	atk >= 1:1.20.0
-Requires:	python-pygobject >= 2.14.1
+Requires:	atk >= 1:1.24.0
+Requires:	python-pygobject >= 2.16.0
 
 %description atk
 Python bindings for ATK library.
@@ -113,7 +112,7 @@ Summary(pl.UTF-8):	Wiązania Pythona do biblioteki Pango
 Group:		Libraries/Python
 Requires:	pango >= 1:1.18.1
 Requires:	python-pycairo >= 1.2.2
-Requires:	python-pygobject >= 2.14.1
+Requires:	python-pygobject >= 2.16.0
 
 %description pango
 Python bindings for Pango library.
@@ -163,24 +162,22 @@ Dokumentacja API pygtk.
 %{__autoheader}
 %{__automake}
 %configure \
-	--enable-gtk-doc \
 	--enable-thread \
-	%{!?with_numpy:--disable-numeric}
+	%{!?with_numpy:--disable-numpy}
 %{__make}
 
 %install
 rm -rf $RPM_BUILD_ROOT
+install -d $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT \
 	TARGET_DIR='%{_gtkdocdir}/%{name}'
 
-install -d $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
 cp -a examples/* $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
 
 rm -f $RPM_BUILD_ROOT%{py_sitedir}/*/{*.la,*/*.la}
 rm -f $RPM_BUILD_ROOT%{py_sitedir}/{*.py,*/*.py,*/*/*.py}
-rm -f $RPM_BUILD_ROOT%{_datadir}/pygtk/2.0/codegen/*.py
 rm -rf $RPM_BUILD_ROOT%{_libdir}/pygtk/2.0/{demos,pygtk-demo*}
 
 %clean
@@ -192,8 +189,6 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/pygtk-demo
 %dir %{_datadir}/pygtk
 %dir %{_datadir}/pygtk/2.0
-%dir %{_datadir}/pygtk/2.0/codegen
-%{_datadir}/pygtk/2.0/codegen/*.py[co]
 %dir %{_datadir}/pygtk/2.0/defs
 %{_datadir}/pygtk/2.0/defs/*.defs
 %{_datadir}/pygtk/2.0/defs/*.override
