@@ -9,20 +9,20 @@
 Summary:	Python bindings for GTK+ 2.x libraries
 Summary(pl.UTF-8):	Wiązania Pythona do bibliotek GTK+ 2.x
 Name:		python-%{module}
-Version:	2.14.1
-Release:	2
+Version:	2.16.0
+Release:	1
 Epoch:		2
 License:	LGPL v2.1+
 Group:		Libraries/Python
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/pygtk/2.14/%{module}-%{version}.tar.bz2
-# Source0-md5:	c27a7d21b87910e80605d9135d220592
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/pygtk/2.16/%{module}-%{version}.tar.bz2
+# Source0-md5:	bd0d437fefd6d5390f5d770a495cd50c
 Source1:	%{name}-python.m4
 Source2:	%{name}-jhflags.m4
 Patch0:		%{name}-pyc.patch
 URL:		http://www.pygtk.org/
 BuildRequires:	autoconf >= 2.52
 BuildRequires:	automake >= 1:1.7
-BuildRequires:	gtk+2-devel >= 2:2.14.0
+BuildRequires:	gtk+2-devel >= 2:2.18.0
 BuildRequires:	libglade2-devel >= 1:2.6.2
 BuildRequires:	libtool
 BuildRequires:	pkgconfig
