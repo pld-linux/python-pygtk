@@ -29,7 +29,7 @@ BuildRequires:	pkgconfig
 %{?with_numpy:BuildRequires:	python-Numeric-devel}
 BuildRequires:	python-devel >= 1:2.3.2
 BuildRequires:	python-pycairo-devel >= 1.2.6
-BuildRequires:	python-pygobject-devel >= 2.16.0
+BuildRequires:	python-pygobject-devel >= 2.18.0
 # needs /usr/share/doc/gtk-doc/html/pygobject/style.css
 BuildRequires:	python-pygobject-apidocs
 BuildRequires:	rpm-pythonprov
