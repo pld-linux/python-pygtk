@@ -27,7 +27,7 @@ BuildRequires:	libglade2-devel >= 1:2.6.2
 BuildRequires:	libtool
 BuildRequires:	pkgconfig
 %{?with_numpy:BuildRequires:	python-Numeric-devel}
-BuildRequires:	python-devel >= 1:2.3.2
+BuildRequires:	python-devel >= 1:2.3.5
 BuildRequires:	python-pycairo-devel >= 1.2.6
 BuildRequires:	python-pygobject-devel >= 2.18.0
 # needs /usr/share/doc/gtk-doc/html/pygobject/style.css
@@ -51,9 +51,9 @@ Requires:	%{name}-atk = %{epoch}:%{version}-%{release}
 Requires:	%{name}-glade = %{epoch}:%{version}-%{release}
 Requires:	%{name}-gtk = %{epoch}:%{version}-%{release}
 Requires:	%{name}-pango = %{epoch}:%{version}-%{release}
-Requires:	gtk+2-devel >= 2:2.14.0
-Requires:	python-devel >= 1:2.3.2
-Requires:	python-pygobject-devel >= 2.16.0
+Requires:	gtk+2-devel >= 2:2.18.0
+Requires:	python-devel >= 1:2.3.5
+Requires:	python-pygobject-devel >= 2.18.0
 Obsoletes:	python-pygtk < 2:2.12.1-2
 
 %description devel
@@ -82,8 +82,8 @@ Summary(pl.UTF-8):	Wiązania Pythona do biblioteki GTK+
 Group:		Libraries/Python
 Requires:	%{name}-atk = %{epoch}:%{version}-%{release}
 Requires:	%{name}-pango = %{epoch}:%{version}-%{release}
-Requires:	gtk+2 >= 2:2.14.0
-Requires:	python-pycairo >= 1.2.3
+Requires:	gtk+2 >= 2:2.18.0
+Requires:	python-pycairo >= 1.2.6
 Obsoletes:	python-pygtk-glarea
 Conflicts:	python-pygtk < 1:1.0
 
@@ -98,7 +98,7 @@ Summary:	Python bindings for ATK library
 Summary(pl.UTF-8):	Wiązania Pythona do biblioteki ATK
 Group:		Libraries/Python
 Requires:	atk >= 1:1.24.0
-Requires:	python-pygobject >= 2.16.0
+Requires:	python-pygobject >= 2.18.0
 
 %description atk
 Python bindings for ATK library.
@@ -111,8 +111,8 @@ Summary:	Python bindings for Pango library
 Summary(pl.UTF-8):	Wiązania Pythona do biblioteki Pango
 Group:		Libraries/Python
 Requires:	pango >= 1:1.18.1
-Requires:	python-pycairo >= 1.2.2
-Requires:	python-pygobject >= 2.16.0
+Requires:	python-pycairo >= 1.2.6
+Requires:	python-pygobject >= 2.18.0
 
 %description pango
 Python bindings for Pango library.
