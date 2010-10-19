@@ -19,7 +19,7 @@ Source0:	http://ftp.gnome.org/pub/GNOME/sources/pygtk/2.22/%{module}-%{version}.
 Source1:	%{name}-python.m4
 Source2:	%{name}-jhflags.m4
 Patch0:		%{name}-pyc.patch
-Patch1:     %{name}-python27.patch
+Patch1:		%{name}-python27.patch
 URL:		http://www.pygtk.org/
 BuildRequires:	autoconf >= 2.52
 BuildRequires:	automake >= 1:1.7
