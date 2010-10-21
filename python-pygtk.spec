@@ -27,7 +27,7 @@ BuildRequires:	gtk+2-devel >= 2:2.18.0
 BuildRequires:	libglade2-devel >= 1:2.6.2
 BuildRequires:	libtool
 BuildRequires:	pkgconfig
-%{?with_numpy:BuildRequires:	python-Numeric-devel}
+%{?with_numpy:BuildRequires:	python-numpy-devel >= 1:1.0}
 BuildRequires:	python-devel >= 1:2.3.5
 BuildRequires:	python-pycairo-devel >= 1.2.6
 BuildRequires:	python-pygobject-devel >= 2.22.0
@@ -54,7 +54,7 @@ Requires:	%{name}-gtk = %{epoch}:%{version}-%{release}
 Requires:	%{name}-pango = %{epoch}:%{version}-%{release}
 Requires:	gtk+2-devel >= 2:2.18.0
 Requires:	python-devel >= 1:2.3.5
-Requires:	python-pygobject-devel >= 2.18.0
+Requires:	python-pygobject-devel >= 2.22.0
 Obsoletes:	python-pygtk < 2:2.12.1-2
 
 %description devel
@@ -99,7 +99,7 @@ Summary:	Python bindings for ATK library
 Summary(pl.UTF-8):	Wiązania Pythona do biblioteki ATK
 Group:		Libraries/Python
 Requires:	atk >= 1:1.24.0
-Requires:	python-pygobject >= 2.18.0
+Requires:	python-pygobject >= 2.22.0
 
 %description atk
 Python bindings for ATK library.
@@ -113,7 +113,7 @@ Summary(pl.UTF-8):	Wiązania Pythona do biblioteki Pango
 Group:		Libraries/Python
 Requires:	pango >= 1:1.18.1
 Requires:	python-pycairo >= 1.2.6
-Requires:	python-pygobject >= 2.18.0
+Requires:	python-pygobject >= 2.22.0
 
 %description pango
 Python bindings for Pango library.
@@ -178,9 +178,9 @@ install -d $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
 
 cp -a examples/* $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
 
-rm -f $RPM_BUILD_ROOT%{py_sitedir}/*/{*.la,*/*.la}
-rm -f $RPM_BUILD_ROOT%{py_sitedir}/{*.py,*/*.py,*/*/*.py}
-rm -rf $RPM_BUILD_ROOT%{_libdir}/pygtk/2.0/{demos,pygtk-demo*}
+%{__rm} $RPM_BUILD_ROOT%{py_sitedir}/gtk-2.0/{*.la,*/*.la}
+%{__rm} $RPM_BUILD_ROOT%{py_sitedir}/gtk-2.0/gtk/*.py
+%{__rm} -r $RPM_BUILD_ROOT%{_libdir}/pygtk/2.0/{demos,pygtk-demo*}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
