@@ -9,13 +9,13 @@
 Summary:	Python bindings for GTK+ 2.x libraries
 Summary(pl.UTF-8):	Wiązania Pythona do bibliotek GTK+ 2.x
 Name:		python-%{module}
-Version:	2.22.0
-Release:	2
+Version:	2.23.0
+Release:	1
 Epoch:		2
 License:	LGPL v2.1+
 Group:		Libraries/Python
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/pygtk/2.22/%{module}-%{version}.tar.bz2
-# Source0-md5:	e9bba9cd4cdaccb22a7991cc2f7c8373
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/pygtk/2.23/%{module}-%{version}.tar.bz2
+# Source0-md5:	fc70186f0354a93769f88f6b64472aea
 Source1:	%{name}-python.m4
 Source2:	%{name}-jhflags.m4
 Patch0:		%{name}-pyc.patch
@@ -27,8 +27,8 @@ BuildRequires:	gtk+2-devel >= 2:2.18.0
 BuildRequires:	libglade2-devel >= 1:2.6.2
 BuildRequires:	libtool
 BuildRequires:	pkgconfig
-%{?with_numpy:BuildRequires:	python-numpy-devel >= 1:1.0}
 BuildRequires:	python-devel >= 1:2.3.5
+%{?with_numpy:BuildRequires:	python-numpy-devel >= 1:1.0}
 BuildRequires:	python-pycairo-devel >= 1.2.6
 BuildRequires:	python-pygobject-devel >= 2.22.0
 # needs /usr/share/doc/gtk-doc/html/pygobject/style.css
