@@ -5,12 +5,11 @@
 # todo: extensions?
 
 %define		module	pygtk
-
 Summary:	Python bindings for GTK+ 2.x libraries
 Summary(pl.UTF-8):	Wiązania Pythona do bibliotek GTK+ 2.x
 Name:		python-%{module}
 Version:	2.24.0
-Release:	1
+Release:	2
 Epoch:		2
 License:	LGPL v2.1+
 Group:		Libraries/Python
@@ -143,6 +142,9 @@ Summary:	pygtk API documentation
 Summary(pl.UTF-8):	Dokumentacja API pygtk
 Group:		Documentation
 Requires:	gtk-doc-common
+%if "%{_rpmversion}" >= "5"
+BuildArch:	noarch
+%endif
 
 %description apidocs
 pygtk API documentation.
