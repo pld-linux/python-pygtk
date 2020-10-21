@@ -159,6 +159,8 @@ Dokumentacja API pygtk.
 %patch1 -p1
 %patch2 -p1
 
+grep -r '#!.*env python' -l examples | xargs %{__sed} -i -e '1s,#!.*env python.*,#!%{__python},'
+
 # don't remove it
 #mkdir m4
 #cp %{SOURCE1} m4/python.m4
@@ -171,6 +173,7 @@ Dokumentacja API pygtk.
 %{__autoheader}
 %{__automake}
 %configure \
+	PYTHON=%{__python} \
 	--enable-thread \
 	%{!?with_numpy:--disable-numpy}
 %{__make}
