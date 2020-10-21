@@ -19,6 +19,7 @@ Source1:	%{name}-python.m4
 Source2:	%{name}-jhflags.m4
 Patch0:		%{name}-pyc.patch
 Patch1:		%{name}-python27.patch
+Patch2:		drop-pangofont.patch
 URL:		http://www.pygtk.org/
 BuildRequires:	atk-devel >= 1:1.12.0
 BuildRequires:	autoconf >= 2.52
@@ -156,6 +157,7 @@ Dokumentacja API pygtk.
 %setup -q -n %{module}-%{version}
 %patch0 -p1
 %patch1 -p1
+%patch2 -p1
 
 # don't remove it
 #mkdir m4
