@@ -13,7 +13,7 @@ Release:	4
 Epoch:		2
 License:	LGPL v2.1+
 Group:		Libraries/Python
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/pygtk/2.24/%{module}-%{version}.tar.bz2
+Source0:	https://download.gnome.org/sources/pygtk/2.24/%{module}-%{version}.tar.bz2
 # Source0-md5:	a1051d5794fd7696d3c1af6422d17a49
 Source1:	%{name}-python.m4
 Source2:	%{name}-jhflags.m4
@@ -36,6 +36,7 @@ BuildRequires:	python-pycairo-devel >= 1.2.6
 BuildRequires:	python-pygobject-devel >= 2.22.0
 # needs /usr/share/doc/gtk-doc/html/pygobject/style.css
 BuildRequires:	python-pygobject-apidocs
+BuildRequires:	rpm-build >= 4.6
 BuildRequires:	rpm-pythonprov
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -88,7 +89,7 @@ Requires:	%{name}-atk = %{epoch}:%{version}-%{release}
 Requires:	%{name}-pango = %{epoch}:%{version}-%{release}
 Requires:	gtk+2 >= 2:2.24.0
 Requires:	python-pycairo >= 1.2.6
-Obsoletes:	python-pygtk-glarea
+Obsoletes:	python-pygtk-glarea < 1:2.2.0
 Conflicts:	python-pygtk < 1:1.0
 
 %description gtk

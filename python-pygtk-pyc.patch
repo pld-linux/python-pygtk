@@ -1,8 +1,7 @@
-diff -urN pygtk-2.14.0/gtk/Makefile.am pygtk-2.14.0.new/gtk/Makefile.am
---- pygtk-2.14.0/gtk/Makefile.am	2009-01-27 18:54:50.000000000 +0100
-+++ pygtk-2.14.0.new/gtk/Makefile.am	2009-02-16 11:04:37.000000000 +0100
-@@ -81,7 +81,7 @@
- GTKUNIXPRINT_DEFS += gtkunixprint-2.14.defs
+--- pygtk-2.24.0/gtk/Makefile.am.orig	2022-03-04 21:45:35.749117575 +0100
++++ pygtk-2.24.0/gtk/Makefile.am	2022-03-04 21:48:25.118200024 +0100
+@@ -139,7 +139,7 @@ GTK_DEFS += gtk-2.24.defs
+ GTK_TYPES_DEFS += gtk-2.24-types.defs
  endif
  
 -CREATEDEFS = $(PYTHON) $(CODEGENDIR)/createdefs.py
@@ -10,15 +9,15 @@ diff -urN pygtk-2.14.0/gtk/Makefile.am pygtk-2.14.0.new/gtk/Makefile.am
  
  GDK_OVERRIDES = \
  	gdk.override 		\
-@@ -217,7 +217,7 @@
- 
+@@ -290,7 +290,7 @@ extra_codegen_args += --register $(PYGOB
+ endif
  
  .defs.c: 
 -	($(PYTHON) $(CODEGENDIR)/codegen.py \
 +	($(PYTHON) $(CODEGENDIR)/codegen.pyc \
  	   $(PYGTK_CODEGEN_DEFINES) \
  	    -I $(srcdir) \
- 	    --py_ssize_t-clean \
+ 	    --py_ssize_t-clean $(extra_codegen_args) \
 diff -urN pygtk-2.14.0/Makefile.am pygtk-2.14.0.new/Makefile.am
 --- pygtk-2.14.0/Makefile.am	2009-01-27 18:55:44.000000000 +0100
 +++ pygtk-2.14.0.new/Makefile.am	2009-02-16 11:04:10.000000000 +0100
