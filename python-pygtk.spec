@@ -9,7 +9,7 @@ Summary:	Python bindings for GTK+ 2.x libraries
 Summary(pl.UTF-8):	Wiązania Pythona do bibliotek GTK+ 2.x
 Name:		python-%{module}
 Version:	2.24.0
-Release:	4
+Release:	5
 Epoch:		2
 License:	LGPL v2.1+
 Group:		Libraries/Python
@@ -190,6 +190,9 @@ cp -a examples/* $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
 %{__rm} $RPM_BUILD_ROOT%{py_sitedir}/gtk-2.0/{*.la,*/*.la}
 %{__rm} $RPM_BUILD_ROOT%{py_sitedir}/gtk-2.0/gtk/*.py
 %{__rm} -r $RPM_BUILD_ROOT%{_libdir}/pygtk/2.0/{demos,pygtk-demo*}
+
+# adjust after automake 1.16
+%{__sed} -i -e 's,\${PYTHON_EXEC_PREFIX},${prefix},' $RPM_BUILD_ROOT%{_pkgconfigdir}/pygtk-2.0.pc
 
 %clean
 rm -rf $RPM_BUILD_ROOT
