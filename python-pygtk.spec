@@ -154,9 +154,9 @@ Dokumentacja API pygtk.
 
 %prep
 %setup -q -n %{module}-%{version}
-%patch0 -p1
-%patch1 -p1
-%patch2 -p1
+%patch -P0 -p1
+%patch -P1 -p1
+%patch -P2 -p1
 
 grep -r '#!.*env python' -l examples | xargs %{__sed} -i -e '1s,#!.*env python.*,#!%{__python},'
 
